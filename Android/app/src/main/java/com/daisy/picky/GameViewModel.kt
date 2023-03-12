@@ -1,6 +1,7 @@
 package com.daisy.picky
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,7 +27,7 @@ class GameViewModel : ViewModel() {
     val selectedCard: LiveData<List<Int>> get() = _selectedCard
 
     // 정답 개수
-    private val _cntAnswer = MutableLiveData<Int>()
+    private var _cntAnswer = MutableLiveData<Int>()
     val cntAnswer: LiveData<Int> get() = _cntAnswer
 
     fun setGame(gm :Int, shuffledCardPack: MutableList<Card>){
@@ -44,7 +45,7 @@ class GameViewModel : ViewModel() {
         _selectedCard.postValue(selectedCardList)
 
         _cntAnswer.value = 0
-        _cntAnswer.postValue(0)
+        _cntAnswer.postValue(_cntAnswer.value)
 
         cardIndex = 12
 
@@ -63,13 +64,7 @@ class GameViewModel : ViewModel() {
         else {
             selectedCardList.add(value)
             if (selectedCardList.size == 3) { // 3개 선택됨
-                if (checkSET()){
-                    //맞으면
-
-                    //새 카드 넣기
-                }
-
-                // 선택된 카드 초기화
+                checkSET()
                 selectedCardList = mutableListOf<Int>()
                 _selectedCard.value = selectedCardList
                 _selectedCard.postValue(selectedCardList)
@@ -110,14 +105,70 @@ class GameViewModel : ViewModel() {
         Log.d(tag, "end")
     }
 
-    public fun checkSET():Boolean{
-        // 정답이면
-        _cntAnswer.value?.plus(1)
-        _cntAnswer.postValue(_cntAnswer.value)
+    public fun checkSET(){
+        val firstCard = boardCardList.get(selectedCardList.get(0))
+        val secondCard = boardCardList.get(selectedCardList.get(1))
+        val thirdCard = boardCardList.get(selectedCardList.get(2))
+
+        if (isSETonThree(firstCard, secondCard, thirdCard)){
+            // set
+            _cntAnswer.value = _cntAnswer.value?.plus(1)
+            _cntAnswer.postValue(_cntAnswer.value)
+            replaceNewCard()
+        }
+        else{
+            _cntAnswer.value = _cntAnswer.value?.minus(1)
+            _cntAnswer.postValue(_cntAnswer.value)
+        }
+    }
+
+    public fun isSETonThree(f: Card, s: Card, t: Card):Boolean {
+        if ((f.color == s.color) and (s.color != t.color)){
+            return false
+        }else if ((f.color != s.color) and (s.color == t.color)){
+            return false
+        }else if ((f.color == t.color) and (t.color != s.color)){
+            return false
+        }
+
+        if ((f.count == s.count) and (s.count != t.count)){
+            return false
+        }else if ((f.count != s.count) and (s.count == t.count)){
+            return false
+        }else if ((f.count == t.count) and (t.count != s.count)){
+            return false
+        }
+
+        if ((f.shape == s.shape) and (s.shape != t.shape)){
+            return false
+        }else if ((f.shape != s.shape) and (s.shape == t.shape)){
+            return false
+        }else if ((f.shape == t.shape) and (t.shape != s.shape)){
+            return false
+        }
+
+        if ((f.pattern == s.pattern) and (s.pattern != t.pattern)){
+            return false
+        }else if ((f.pattern != s.pattern) and (s.pattern == t.pattern)){
+            return false
+        }else if ((f.pattern == t.pattern) and (t.pattern != s.pattern)){
+            return false
+        }
+
         return true
+    }
 
+    public fun replaceNewCard(){
+        for (i in 0..selectedCardList.lastIndex){
+            val curIndex = selectedCardList.get(i)
 
-        // 아니면
+            boardCardList.removeAt(curIndex)
+            boardCardList.add(curIndex, cardPack.get(cardIndex))
+            cardIndex += 1
+        }
+
+        _boardCard.value = boardCardList
+        _boardCard.postValue(_boardCard.value)
     }
 
 

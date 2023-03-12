@@ -22,5 +22,11 @@ class GameActivity : BaseActivity() {
         gameViewModel = ViewModelProvider(this)[GameViewModel::class.java]
         gameViewModel.setGame(gameMode, cardPack.shuffled().toMutableList())
 
+
+        gameViewModel.cntAnswer.observe(this){
+            binding.txtCount.text = it.toString()
+            Log.d(logTag, "cntAnswer"+it.toString())
+        }
+
     }
 }
