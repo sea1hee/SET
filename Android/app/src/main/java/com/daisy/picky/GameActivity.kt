@@ -1,8 +1,10 @@
 package com.daisy.picky
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.daisy.picky.databinding.ActivityGameBinding
+import kotlin.math.log
 
 class GameActivity : BaseActivity() {
 

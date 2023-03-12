@@ -20,8 +20,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_0"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -49,8 +49,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_1"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -79,8 +79,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_2"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -106,18 +106,11 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_row2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_3"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -143,11 +136,18 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_row2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_4"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -176,8 +176,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_5"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -204,18 +204,10 @@
 
             </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_row3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_6"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -244,8 +236,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_7"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -272,10 +264,18 @@
 
             </androidx.cardview.widget.CardView>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_row3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_8"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -302,18 +302,10 @@
 
             </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_row4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_9"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -342,8 +334,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_10"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -372,8 +364,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_11"
-                android:layout_width="80sp"
-                android:layout_height="140sp"
+                android:layout_width="60sp"
+                android:layout_height="120sp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="10dp"
                 android:layout_margin= "10dp"
@@ -398,6 +390,8 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
+
     </LinearLayout>
 </FrameLayout>
