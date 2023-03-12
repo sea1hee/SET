@@ -1,9 +1,8 @@
-package com.daisy.set
+package com.daisy.picky
 
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import com.daisy.set.databinding.ActivityGameBinding
+import com.daisy.picky.databinding.ActivityGameBinding
 
 class GameActivity : BaseActivity() {
 

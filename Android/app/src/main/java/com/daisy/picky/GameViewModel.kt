@@ -1,4 +1,4 @@
-package com.daisy.set
+package com.daisy.picky
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

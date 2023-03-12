@@ -1,4 +1,4 @@
-package com.daisy.set
+package com.daisy.picky
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.daisy.set.databinding.FragmentBoardBinding
+import com.daisy.picky.databinding.FragmentBoardBinding
 
 class BoardFragment : Fragment() {
 

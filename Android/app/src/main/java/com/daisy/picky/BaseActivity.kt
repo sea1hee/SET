@@ -1,4 +1,4 @@
-package com.daisy.set
+package com.daisy.picky
 
 import androidx.appcompat.app.AppCompatActivity
 

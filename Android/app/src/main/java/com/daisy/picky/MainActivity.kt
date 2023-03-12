@@ -1,10 +1,10 @@
-package com.daisy.set
+package com.daisy.picky
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.daisy.set.databinding.ActivityMainBinding
+import com.daisy.picky.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
     val logTag = "MainActivity"
