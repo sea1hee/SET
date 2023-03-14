@@ -36,7 +36,6 @@ class BoardFragment : Fragment() {
         gameViewModel.printBoardCardLog(logtag)
 
         gameViewModel.boardCard.observe(viewLifecycleOwner) {
-            binding.txtCard0.setText(gameViewModel.getBoardCard(0).count.toString()+"/"+gameViewModel.getBoardCard(0).color.toString()+"/"+gameViewModel.getBoardCard(0).shape.toString()+"/"+gameViewModel.getBoardCard(0).pattern.toString())
             binding.txtCard1.setText(gameViewModel.getBoardCard(1).count.toString()+"/"+gameViewModel.getBoardCard(1).color.toString()+"/"+gameViewModel.getBoardCard(1).shape.toString()+"/"+gameViewModel.getBoardCard(1).pattern.toString())
             binding.txtCard2.setText(gameViewModel.getBoardCard(2).count.toString()+"/"+gameViewModel.getBoardCard(2).color.toString()+"/"+gameViewModel.getBoardCard(2).shape.toString()+"/"+gameViewModel.getBoardCard(2).pattern.toString())
             binding.txtCard3.setText(gameViewModel.getBoardCard(3).count.toString()+"/"+gameViewModel.getBoardCard(3).color.toString()+"/"+gameViewModel.getBoardCard(3).shape.toString()+"/"+gameViewModel.getBoardCard(3).pattern.toString())

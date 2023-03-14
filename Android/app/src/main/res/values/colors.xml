@@ -8,4 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FF0000</color>
+
+    <color name="game_background">#FFF0F0F0</color>
+    <color name="card_background_normal">#FF000000</color>
+    <color name="card_background_pressed">#FFF0F0F0</color>
+    <color name="card_background_selected">#FFF0F0F0</color>
+
+
+    <color name="card_color_1">#FFB054FF</color>
 </resources>
