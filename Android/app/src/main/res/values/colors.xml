@@ -12,8 +12,9 @@
     <color name="game_background">#FFF0F0F0</color>
     <color name="card_background_normal">#FF000000</color>
     <color name="card_background_pressed">#FFF0F0F0</color>
-    <color name="card_background_selected">#FFF0F0F0</color>
-
+    <color name="card_background_selected">#FFFC035D</color>
 
     <color name="card_color_1">#FFB054FF</color>
+    <color name="card_color_2">#FF5BE1D8</color>
+    <color name="card_color_3">#FFE2FF36</color>
 </resources>

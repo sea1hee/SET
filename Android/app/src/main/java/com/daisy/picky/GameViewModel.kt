@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GameViewModel : ViewModel() {
+class GameViewModel() : ViewModel() {
 
     private val logtag = "ViewModel"
 
@@ -30,12 +30,14 @@ class GameViewModel : ViewModel() {
     private var _cntAnswer = MutableLiveData<Int>()
     val cntAnswer: LiveData<Int> get() = _cntAnswer
 
+
     fun setGame(gm :Int, shuffledCardPack: MutableList<Card>){
         gameMode = gm
+
         cardPack = shuffledCardPack
 
         for (i in 0..11){
-            boardCardList.add(cardPack.get(i))
+            boardCardList.add(shuffledCardPack.get(i))
         }
 
         _boardCard.value = boardCardList
@@ -50,6 +52,7 @@ class GameViewModel : ViewModel() {
         cardIndex = 12
 
         printBoardCardLog(logtag)
+
     }
 
 

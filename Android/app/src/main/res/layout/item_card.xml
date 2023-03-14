@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="74dp"
+    android:layout_height="139dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="6.5dp"
+    app:cardBackgroundColor="@color/card_background_normal"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/card_1"
+            android:layout_width="36.79sp"
+            android:layout_height="33.53sp"
+            android:src="@drawable/shape_1_1"
+            app:layout_constraintBottom_toTopOf="@+id/card_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/card_2"
+            android:layout_width="36.79sp"
+            android:layout_height="33.53sp"
+            android:src="@drawable/shape_1_1"
+            app:layout_constraintBottom_toTopOf="@+id/card_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_1"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/card_3"
+            android:layout_width="36.79sp"
+            android:layout_height="33.53sp"
+            android:src="@drawable/shape_1_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/card_4"
+            android:layout_width="36.79sp"
+            android:layout_height="33.53sp"
+            android:src="@drawable/shape_1_1"
+            app:layout_constraintBottom_toTopOf="@+id/card_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"/>
+
+
+        <ImageView
+            android:id="@+id/card_5"
+            android:layout_width="36.79sp"
+            android:layout_height="33.53sp"
+            android:src="@drawable/shape_1_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="invisible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
