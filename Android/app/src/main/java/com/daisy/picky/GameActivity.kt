@@ -24,9 +24,12 @@ class GameActivity : BaseActivity() {
 
 
         gameViewModel.cntAnswer.observe(this){
-            binding.txtCount.text = it.toString()
+            binding.txtCount.text = it.toString() + " SET"
             Log.d(logTag, "cntAnswer"+it.toString())
         }
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 }
