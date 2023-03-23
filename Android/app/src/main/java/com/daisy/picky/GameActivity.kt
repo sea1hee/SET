@@ -2,9 +2,10 @@ package com.daisy.picky
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.daisy.picky.databinding.ActivityGameBinding
-import kotlin.math.log
+import com.daisy.picky.found.FoundFragment
 
 class GameActivity : BaseActivity() {
 
@@ -23,13 +24,26 @@ class GameActivity : BaseActivity() {
         gameViewModel.setGame(gameMode, cardPack.shuffled().toMutableList())
 
 
+        setFoundSetsOFF()
+
         gameViewModel.cntAnswer.observe(this){
-            binding.txtCount.text = it.toString() + " SET" + gameViewModel.checkAllSet().toString()
+            binding.txtCount.text = it.toString() + " SET"
+
+            binding.txtExist.text = gameViewModel.checkAllSet().toString() + " exists"
             Log.d(logTag, "cntAnswer"+it.toString())
         }
 
         binding.btnBack.setOnClickListener {
             finish()
         }
+
+        binding.btnSets.setOnClickListener {
+            binding.containerFound.visibility = View.VISIBLE
+
+        }
+    }
+
+    public fun setFoundSetsOFF(){
+        binding.containerFound.visibility = View.GONE
     }
 }

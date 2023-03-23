@@ -58,6 +58,10 @@ class GameViewModel() : ViewModel() {
         _selectedCard.value = selectedCardList
         _selectedCard.postValue(selectedCardList)
 
+        _matchedCard.value = matchedCardList
+        _matchedCard.postValue(_matchedCard.value)
+
+
         _cntAnswer.value = 0
         _cntAnswer.postValue(_cntAnswer.value)
 
@@ -127,7 +131,7 @@ class GameViewModel() : ViewModel() {
             return true
         }
         else{
-            _cntAnswer.value = _cntAnswer.value?.minus(1)
+            _cntAnswer.value = _cntAnswer.value?.minus(0)
             _cntAnswer.postValue(_cntAnswer.value)
 
 
@@ -183,15 +187,15 @@ class GameViewModel() : ViewModel() {
             Log.d(logtag, curIndex.toString())
 
             if (boardCardList.size <= 12) {
+                matchedCardList.add(boardCardList.get(curIndex))
                 boardCardList.removeAt(curIndex)
                 boardCardList.add(curIndex, cardPack.get(cardIndex))
                 cardIndex += 1
             }else{
                 curIndex -= i
+                matchedCardList.add(boardCardList.get(curIndex))
                 boardCardList.removeAt(curIndex)
             }
-
-            matchedCardList.add(boardCardList.get(curIndex))
         }
 
         _matchedCard.value = matchedCardList
