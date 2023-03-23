@@ -39,6 +39,10 @@ class GameViewModel() : ViewModel() {
     val endGameFlag: LiveData<Boolean> get() = _endGameFlag
 
 
+    private var matchedCardList = mutableListOf<Card>()
+    private val _matchedCard = MutableLiveData<List<Card>>()
+    val matchCard: LiveData<List<Card>> get() = _matchedCard
+
     fun setGame(gm :Int, shuffledCardPack: MutableList<Card>){
         gameMode = gm
 
@@ -64,8 +68,6 @@ class GameViewModel() : ViewModel() {
                 addNewCard()
             }
         }
-
-        printBoardCardLog(logtag)
 
     }
 
@@ -101,39 +103,14 @@ class GameViewModel() : ViewModel() {
                     return false
                 }
             } else { // 3개 이하
-                _selectedCard.value = selectedCardList
-                _selectedCard.postValue(selectedCardList)
                 return true
             }
         }
     }
 
-
     public fun getSelectedCard():List<Int>{
         // 선택된 카드 리스트
         return selectedCardList
-    }
-
-
-    public fun getBoardCard(ind :Int):Card{
-        //보드 내 카드 중 ind 인덱스 값
-        return boardCardList.get(ind)
-    }
-
-    public fun printBoardCardLog(tag: String){
-        // 보드 정보 Log 기록
-        //for (i in 0..boardCardList.lastIndex){
-        //    Log.d(tag, boardCardList.get(i).count.toString()+"/"+boardCardList.get(i).color.toString()+"/"+boardCardList.get(i).shape.toString()+"/"+boardCardList.get(i).pattern.toString())
-        //}
-    }
-
-    public fun printSelectedCardLog(tag: String){
-        // 보드 정보 Log 기록
-        for (i in 0..selectedCardList.lastIndex){
-            Log.d(tag, selectedCardList.get(i).toString())
-        }
-
-        Log.d(tag, "end")
     }
 
     public fun checkSET(): Boolean{
@@ -200,17 +177,25 @@ class GameViewModel() : ViewModel() {
         }
 
         selectedCardList.sort()
+        Log.d(logtag, selectedCardList.get(0).toString() + " " + selectedCardList.get(1).toString() + " " + selectedCardList.get(2).toString())
         for (i in 0..selectedCardList.lastIndex){
-            var curIndex = selectedCardList.get(i)-i
+            var curIndex = selectedCardList.get(i)
+            Log.d(logtag, curIndex.toString())
 
-            boardCardList.removeAt(curIndex)
-            if (boardCardList.size < 12) {
+            if (boardCardList.size <= 12) {
+                boardCardList.removeAt(curIndex)
                 boardCardList.add(curIndex, cardPack.get(cardIndex))
                 cardIndex += 1
             }else{
-                curIndex -= 1
+                curIndex -= i
+                boardCardList.removeAt(curIndex)
             }
+
+            matchedCardList.add(boardCardList.get(curIndex))
         }
+
+        _matchedCard.value = matchedCardList
+        _matchedCard.postValue(_matchedCard.value)
 
         _boardCard.value = boardCardList
         _boardCard.postValue(_boardCard.value)
@@ -269,5 +254,4 @@ class GameViewModel() : ViewModel() {
         _endGameFlag.value = endGameFlaginViewModel
         _endGameFlag.postValue(_endGameFlag.value)
     }
-
 }

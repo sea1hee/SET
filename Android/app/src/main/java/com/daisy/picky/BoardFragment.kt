@@ -35,7 +35,6 @@ class BoardFragment : Fragment(), OnCardClick {
         val view = binding.root
 
         gameViewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
-        gameViewModel.printBoardCardLog(logtag)
 
         adapter = CardAdapter(this)
         adapter.boardCard = gameViewModel.boardCard.value!!
