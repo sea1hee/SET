@@ -44,9 +44,7 @@ class BoardFragment : Fragment(), OnCardClick {
         binding.rcCards.layoutManager = GridLayoutManager(context, 4)
 
         gameViewModel.boardCard.observe(viewLifecycleOwner) {
-            if (it.size != 12){
-                binding.rcCards.layoutManager = GridLayoutManager(context, 4 + (it.size-12)/3)
-            }
+            binding.rcCards.layoutManager = GridLayoutManager(context, 4 + (it.size-12)/3)
             adapter.boardCard = gameViewModel.boardCard.value!!
         }
 

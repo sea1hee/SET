@@ -199,17 +199,23 @@ class GameViewModel() : ViewModel() {
             setEndGameFlag(true)
         }
 
+        selectedCardList.sort()
         for (i in 0..selectedCardList.lastIndex){
-            val curIndex = selectedCardList.get(i)
+            var curIndex = selectedCardList.get(i)-i
 
             boardCardList.removeAt(curIndex)
-            boardCardList.add(curIndex, cardPack.get(cardIndex))
-            cardIndex += 1
+            if (boardCardList.size < 12) {
+                boardCardList.add(curIndex, cardPack.get(cardIndex))
+                cardIndex += 1
+            }else{
+                curIndex -= 1
+            }
         }
 
         _boardCard.value = boardCardList
         _boardCard.postValue(_boardCard.value)
 
+        // 없으면 3개 추가
         if (checkAllSet() == 0){
             if (cardIndex < cardPack.size) {
                 addNewCard()
