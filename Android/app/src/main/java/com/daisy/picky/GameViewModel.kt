@@ -1,10 +1,13 @@
 package com.daisy.picky
 
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlin.math.log
 
 class GameViewModel() : ViewModel() {
 
@@ -31,6 +34,11 @@ class GameViewModel() : ViewModel() {
     val cntAnswer: LiveData<Int> get() = _cntAnswer
 
 
+    private var endGameFlaginViewModel: Boolean = false
+    private val _endGameFlag = MutableLiveData<Boolean>()
+    val endGameFlag: LiveData<Boolean> get() = _endGameFlag
+
+
     fun setGame(gm :Int, shuffledCardPack: MutableList<Card>){
         gameMode = gm
 
@@ -51,31 +59,51 @@ class GameViewModel() : ViewModel() {
 
         cardIndex = 12
 
+        if (checkAllSet() == 0){
+            if (cardIndex < cardPack.size) {
+                addNewCard()
+            }
+        }
+
         printBoardCardLog(logtag)
 
     }
 
 
-    public fun setCntSelected(isIncluded :Boolean, value: Int):Boolean{
+    public fun setSelected(isIncluded :Boolean, value: Int):Boolean{
 
         if (isIncluded) {
             selectedCardList.remove(value)
             _selectedCard.value = selectedCardList
             _selectedCard.postValue(selectedCardList)
-            return false
+            return true
         }
         else {
             selectedCardList.add(value)
+
+            _selectedCard.value = selectedCardList
+            _selectedCard.postValue(selectedCardList)
+
             if (selectedCardList.size == 3) { // 3개 선택됨
-                checkSET()
-                selectedCardList = mutableListOf<Int>()
-                _selectedCard.value = selectedCardList
-                _selectedCard.postValue(selectedCardList)
-                return true
+                if (checkSET()) {
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        selectedCardList = mutableListOf<Int>()
+                        _selectedCard.value = selectedCardList
+                        _selectedCard.postValue(selectedCardList)
+                    }, 10)
+                    return true
+                } else{
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        selectedCardList = mutableListOf<Int>()
+                        _selectedCard.value = selectedCardList
+                        _selectedCard.postValue(selectedCardList)
+                    }, 200)
+                    return false
+                }
             } else { // 3개 이하
                 _selectedCard.value = selectedCardList
                 _selectedCard.postValue(selectedCardList)
-                return false
+                return true
             }
         }
     }
@@ -94,9 +122,9 @@ class GameViewModel() : ViewModel() {
 
     public fun printBoardCardLog(tag: String){
         // 보드 정보 Log 기록
-        for (i in 0..11){
-            Log.d(tag, boardCardList.get(i).count.toString()+"/"+boardCardList.get(i).color.toString()+"/"+boardCardList.get(i).shape.toString()+"/"+boardCardList.get(i).pattern.toString())
-        }
+        //for (i in 0..boardCardList.lastIndex){
+        //    Log.d(tag, boardCardList.get(i).count.toString()+"/"+boardCardList.get(i).color.toString()+"/"+boardCardList.get(i).shape.toString()+"/"+boardCardList.get(i).pattern.toString())
+        //}
     }
 
     public fun printSelectedCardLog(tag: String){
@@ -108,7 +136,7 @@ class GameViewModel() : ViewModel() {
         Log.d(tag, "end")
     }
 
-    public fun checkSET(){
+    public fun checkSET(): Boolean{
         val firstCard = boardCardList.get(selectedCardList.get(0))
         val secondCard = boardCardList.get(selectedCardList.get(1))
         val thirdCard = boardCardList.get(selectedCardList.get(2))
@@ -118,10 +146,15 @@ class GameViewModel() : ViewModel() {
             _cntAnswer.value = _cntAnswer.value?.plus(1)
             _cntAnswer.postValue(_cntAnswer.value)
             replaceNewCard()
+
+            return true
         }
         else{
             _cntAnswer.value = _cntAnswer.value?.minus(1)
             _cntAnswer.postValue(_cntAnswer.value)
+
+
+            return false
         }
     }
 
@@ -162,6 +195,10 @@ class GameViewModel() : ViewModel() {
     }
 
     public fun replaceNewCard(){
+        if (cardIndex + 3 > cardPack.lastIndex){
+            setEndGameFlag(true)
+        }
+
         for (i in 0..selectedCardList.lastIndex){
             val curIndex = selectedCardList.get(i)
 
@@ -172,8 +209,59 @@ class GameViewModel() : ViewModel() {
 
         _boardCard.value = boardCardList
         _boardCard.postValue(_boardCard.value)
+
+        if (checkAllSet() == 0){
+            if (cardIndex < cardPack.size) {
+                addNewCard()
+            }
+        }
     }
 
+    public fun checkAllSet():Int{
 
+        val sets = mutableSetOf<Set<Int>>()
+        var cntSet = 0
+
+        for (i in 0..boardCardList.lastIndex-2){
+            for (j in 1..boardCardList.lastIndex-1){
+                if (i == j){
+                    continue
+                }
+                for (k in 2..boardCardList.lastIndex){
+                    if (i == k || j == k){
+                        continue
+                    }
+                    if (isSETonThree(boardCardList.get(i), boardCardList.get(j), boardCardList.get(k))){
+                        cntSet += 1
+                        sets.add(setOf(i+1, j+1, k+1))
+                    }
+                }
+            }
+        }
+
+        Log.d(logtag, sets.size.toString() + " " + sets.toString())
+        return sets.size
+    }
+
+    public fun addNewCard(){
+        if (cardIndex + 3 > cardPack.lastIndex){
+            setEndGameFlag(true)
+        }
+
+        for(i in 0..2){
+            boardCardList.add(cardPack.get(cardIndex))
+            cardIndex += 1
+        }
+
+
+        _boardCard.value = boardCardList
+        _boardCard.postValue(_boardCard.value)
+    }
+
+    public fun setEndGameFlag(value: Boolean){
+        endGameFlaginViewModel = value
+        _endGameFlag.value = endGameFlaginViewModel
+        _endGameFlag.postValue(_endGameFlag.value)
+    }
 
 }

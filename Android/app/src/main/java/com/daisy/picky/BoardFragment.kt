@@ -44,12 +44,21 @@ class BoardFragment : Fragment(), OnCardClick {
         binding.rcCards.layoutManager = GridLayoutManager(context, 4)
 
         gameViewModel.boardCard.observe(viewLifecycleOwner) {
+            if (it.size != 12){
+                binding.rcCards.layoutManager = GridLayoutManager(context, 4 + (it.size-12)/3)
+            }
             adapter.boardCard = gameViewModel.boardCard.value!!
         }
 
         gameViewModel.selectedCard.observe(viewLifecycleOwner) {
             adapter.selectedCard = gameViewModel.selectedCard.value!!
             adapter.notifyDataSetChanged()
+        }
+
+        gameViewModel.endGameFlag.observe(viewLifecycleOwner){
+            if (it){
+                activity?.finish()
+            }
         }
 
         return view
@@ -63,6 +72,21 @@ class BoardFragment : Fragment(), OnCardClick {
 
     override fun selected(index: Int) {
         //Log.d(logtag, gameViewModel.selectedCard.value?.get(0).toString())
-        gameViewModel.setCntSelected(gameViewModel.getSelectedCard().contains(index), index)
+        val selected = gameViewModel.selectedCard.value
+        if (gameViewModel.setSelected(gameViewModel.getSelectedCard().contains(index), index) == false) {
+
+            if (selected?.size == 3) {
+                adapter.notifyItemRangeChanged(
+                    selected!!.get(0),
+                    adapter.getItemCount(),
+                    "selected"
+                )
+                adapter.notifyItemRangeChanged(selected.get(1), adapter.getItemCount(), "selected")
+                adapter.notifyItemRangeChanged(selected.get(2), adapter.getItemCount(), "selected")
+            }
+        }
+        else{
+            adapter.notifyDataSetChanged()
+        }
     }
 }
