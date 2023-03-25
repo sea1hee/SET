@@ -37,7 +37,7 @@ class FoundFragment : Fragment(), OnCardClick {
 
         gameViewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
 
-        adapter = FoundCardAdapter()
+        adapter = FoundCardAdapter(requireContext())
         adapter.foundCard = gameViewModel.matchCard.value!!
         binding.rcFoundsets.adapter = adapter
         binding.rcFoundsets.layoutManager = GridLayoutManager(context, 3)

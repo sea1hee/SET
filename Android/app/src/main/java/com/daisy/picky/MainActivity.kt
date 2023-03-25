@@ -1,10 +1,12 @@
 package com.daisy.picky
 
 import android.content.Intent
+import android.graphics.Point
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.daisy.picky.databinding.ActivityMainBinding
+
 
 class MainActivity : BaseActivity() {
     val logTag = "MainActivity"
@@ -15,6 +17,14 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val display = windowManager.defaultDisplay
+
+        val size = Point()
+
+        display.getSize(size)
+
+        Log.d(logTag, ">>> size.x : " + size.x + ", size.y : " + size.y)
 
         binding.btnMode1.setOnClickListener{
             Log.d(logTag, "select single mode btn")

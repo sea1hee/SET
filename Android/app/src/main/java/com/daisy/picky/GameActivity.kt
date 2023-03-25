@@ -23,7 +23,6 @@ class GameActivity : BaseActivity() {
         gameViewModel = ViewModelProvider(this)[GameViewModel::class.java]
         gameViewModel.setGame(gameMode, cardPack.shuffled().toMutableList())
 
-
         setFoundSetsOFF()
 
         gameViewModel.cntAnswer.observe(this){
