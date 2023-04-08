@@ -26,9 +26,9 @@ class GameActivity : BaseActivity() {
         setFoundSetsOFF()
 
         gameViewModel.cntAnswer.observe(this){
-            binding.txtCount.text = it.toString() + " SET"
+            binding.txtCount.text = it.toString() + " Set"
 
-            binding.txtExist.text = gameViewModel.checkAllSet().toString() + " exists"
+            binding.txtExist.text = gameViewModel.checkAllSet().toString() + " Sets available"
             Log.d(logTag, "cntAnswer"+it.toString())
         }
 

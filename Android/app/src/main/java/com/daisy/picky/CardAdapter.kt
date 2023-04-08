@@ -1,9 +1,12 @@
 package com.daisy.picky
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.annotation.NonNull
 import androidx.cardview.widget.CardView
@@ -98,6 +101,7 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+        Log.d("1animation", "origin "+position.toString())
         holder.card.setOnClickListener{
             mCallback.selected(position)
         }
@@ -111,7 +115,8 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
 
         // 카드 선택 여부 확인 selected
         if (selected) {
-            holder.card.strokeWidth = 8
+            holder.card.strokeWidth = 10
+            holder.card.strokeColor = ContextCompat.getColor(holder.card.context, R.color.card_stroke_selected)
             /*
             holder.card.setCardBackgroundColor(
                 ContextCompat.getColor(
@@ -122,7 +127,8 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
             )
              */
         }else {
-            holder.card.strokeWidth = 0
+            holder.card.strokeWidth = 3
+            holder.card.strokeColor = ContextCompat.getColor(holder.card.context, R.color.card_stroke_normal)
             /*
             holder.card.setCardBackgroundColor(
                 ContextCompat.getColor(
@@ -138,5 +144,24 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
 
     }
 
+
+
     override fun getItemCount() = boardCard.size
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: MutableList<Any>) {
+
+        Log.d("1animation", position.toString() +" "+ payloads.toString())
+        if (!payloads.isEmpty()){
+            for (any in payloads){
+                if (any == "anim"){
+                    Log.d("1animation", position.toString())
+                    val animation = AnimationUtils.loadAnimation(holder.card.context, R.anim.wave)
+                    holder.card.animation = animation
+                }
+            }
+        }
+        else{
+            super.onBindViewHolder(holder, position, payloads)
+        }
+    }
 }

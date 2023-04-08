@@ -67,20 +67,20 @@ class BoardFragment : Fragment(), OnCardClick {
         _binding= null
     }
 
+    // 카드 없을 때 3장 추가하는 기능\
+    // index번째 카드 선택 이벤트 발생 시
     override fun selected(index: Int) {
         //Log.d(logtag, gameViewModel.selectedCard.value?.get(0).toString())
         val selected = gameViewModel.selectedCard.value
-        if (gameViewModel.setSelected(gameViewModel.getSelectedCard().contains(index), index) == false) {
 
-            if (selected?.size == 3) {
-                adapter.notifyItemRangeChanged(
-                    selected!!.get(0),
-                    adapter.getItemCount(),
-                    "selected"
-                )
-                adapter.notifyItemRangeChanged(selected.get(1), adapter.getItemCount(), "selected")
-                adapter.notifyItemRangeChanged(selected.get(2), adapter.getItemCount(), "selected")
-            }
+        // 3개 선택 후 틀린 경우
+        if (gameViewModel.setSelected(gameViewModel.getSelectedCard().contains(index), index) == false) {
+            Log.d("1animation", "boardFragment")
+            Log.d("1animation", selected!!.get(0).toString())
+            Log.d("1animation", selected!!.get(1).toString())
+            Log.d("1animation", selected!!.get(2).toString())
+            adapter.notifyItemRangeChanged(0,12, "anim")
+            Log.d("1animation", selected!!.size.toString())
         }
         else{
             adapter.notifyDataSetChanged()
