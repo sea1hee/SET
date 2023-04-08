@@ -38,7 +38,9 @@ class GameActivity : BaseActivity() {
 
         binding.btnSets.setOnClickListener {
             binding.containerFound.visibility = View.VISIBLE
-
+        }
+        binding.btnReload.setOnClickListener {
+            gameViewModel.addNewCard()
         }
     }
 

@@ -37,6 +37,7 @@
         android:id="@+id/txt_exist"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:text="0 Sets available"
         android:textColor="@color/white"

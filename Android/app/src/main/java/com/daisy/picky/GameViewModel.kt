@@ -17,12 +17,9 @@ class GameViewModel() : ViewModel() {
     private lateinit var cardPack: MutableList<Card>
 
     // 깔려있는 카드
-    private val boardCardList = mutableListOf<Card>()
+    private var boardCardList = mutableListOf<Card>()
     private val _boardCard = MutableLiveData<List<Card>>()
     val boardCard: LiveData<List<Card>> get() = _boardCard
-
-    // 전체 카드(cardPack) 중 어디까지 썼는지
-    private var cardIndex: Int = 12
 
     // 선택된 카드
     private var selectedCardList = mutableListOf<Int>()
@@ -49,7 +46,8 @@ class GameViewModel() : ViewModel() {
         cardPack = shuffledCardPack
 
         for (i in 0..11){
-            boardCardList.add(shuffledCardPack.get(i))
+            boardCardList.add(cardPack.get(0))
+            cardPack.removeAt(0)
         }
 
         _boardCard.value = boardCardList
@@ -61,30 +59,21 @@ class GameViewModel() : ViewModel() {
         _matchedCard.value = matchedCardList
         _matchedCard.postValue(_matchedCard.value)
 
-
         _cntAnswer.value = 0
         _cntAnswer.postValue(_cntAnswer.value)
 
-        cardIndex = 12
-
-        if (checkAllSet() == 0){
-            if (cardIndex < cardPack.size) {
-                addNewCard()
-            }
-        }
-
     }
 
-
+    // 카드가 선택되었을 떄,
     public fun setSelected(isIncluded :Boolean, value: Int):Boolean{
-
+        // 이미 선택되어 있는 경우, 선택 해제
         if (isIncluded) {
             selectedCardList.remove(value)
             _selectedCard.value = selectedCardList
             _selectedCard.postValue(selectedCardList)
             return true
         }
-        else {
+        else { // 카드 선택 후, 3개 선택 상태이면 set인지 확인, 3개 선택 해제
             selectedCardList.add(value)
 
             _selectedCard.value = selectedCardList
@@ -112,11 +101,13 @@ class GameViewModel() : ViewModel() {
         }
     }
 
+    //선택된 카드 리스트 반환
     public fun getSelectedCard():List<Int>{
         // 선택된 카드 리스트
         return selectedCardList
     }
 
+    // 선택된 카드 3장이 set인지 확인 후, 세트이면 점수 1점 올리고 true, 아니면 false 반환
     public fun checkSET(): Boolean{
         val firstCard = boardCardList.get(selectedCardList.get(0))
         val secondCard = boardCardList.get(selectedCardList.get(1))
@@ -139,6 +130,7 @@ class GameViewModel() : ViewModel() {
         }
     }
 
+    // 파라미터의 세장이 세트이면 true 반환, 세트아니면 false 반환
     public fun isSETonThree(f: Card, s: Card, t: Card):Boolean {
         if ((f.color == s.color) and (s.color != t.color)){
             return false
@@ -175,43 +167,42 @@ class GameViewModel() : ViewModel() {
         return true
     }
 
+    // set 맞출 경우 불려져서, 선택된 카드의 인덱스 자리의 카드 교체
     public fun replaceNewCard(){
-        if (cardIndex + 3 > cardPack.lastIndex){
+        if (cardPack.size < 3){
             setEndGameFlag(true)
         }
+        else {
+            selectedCardList.sort()
+            Log.d(logtag,selectedCardList.size.toString()+" "+
+                selectedCardList.get(0).toString() + " " + selectedCardList.get(1)
+                    .toString() + " " + selectedCardList.get(2).toString()
+            )
 
-        selectedCardList.sort()
-        Log.d(logtag, selectedCardList.get(0).toString() + " " + selectedCardList.get(1).toString() + " " + selectedCardList.get(2).toString())
-        for (i in 0..selectedCardList.lastIndex){
-            var curIndex = selectedCardList.get(i)
-            Log.d(logtag, curIndex.toString())
+            for (i in 0..selectedCardList.lastIndex) {
+                var curIndex = selectedCardList.get(i)
+                Log.d(logtag, curIndex.toString())
 
-            if (boardCardList.size <= 12) {
                 matchedCardList.add(boardCardList.get(curIndex))
-                boardCardList.removeAt(curIndex)
-                boardCardList.add(curIndex, cardPack.get(cardIndex))
-                cardIndex += 1
-            }else{
-                curIndex -= i
-                matchedCardList.add(boardCardList.get(curIndex))
-                boardCardList.removeAt(curIndex)
             }
+
+            for (i in 0..selectedCardList.lastIndex){
+                var curIndex = selectedCardList.get(i)
+
+                boardCardList[curIndex] = cardPack.get(cardPack.lastIndex)
+                cardPack.removeAt(cardPack.lastIndex)
+            }
+
+            _matchedCard.value = matchedCardList
+            _matchedCard.postValue(_matchedCard.value)
+
+            _boardCard.value = boardCardList
+            _boardCard.postValue(_boardCard.value)
         }
 
-        _matchedCard.value = matchedCardList
-        _matchedCard.postValue(_matchedCard.value)
-
-        _boardCard.value = boardCardList
-        _boardCard.postValue(_boardCard.value)
-
-        // 없으면 3개 추가
-        if (checkAllSet() == 0){
-            if (cardIndex < cardPack.size) {
-                addNewCard()
-            }
-        }
     }
 
+    // 현재 보드의 set 갯수 반환
     public fun checkAllSet():Int{
 
         val sets = mutableSetOf<Set<Int>>()
@@ -238,21 +229,36 @@ class GameViewModel() : ViewModel() {
         return sets.size
     }
 
+    // 보드에 set가 될 카드가 없을 경우, 불려짐
+    // 보드의 카드를 cardPack index 0 ~ 11 로 교체
     public fun addNewCard(){
-        if (cardIndex + 3 > cardPack.lastIndex){
+        if (cardPack.size < 3){
             setEndGameFlag(true)
         }
-
-        for(i in 0..2){
-            boardCardList.add(cardPack.get(cardIndex))
-            cardIndex += 1
+        Log.d("viewmodel", "before : "+boardCardList.size)
+        for(i in 0..boardCardList.lastIndex){
+            Log.d("viewmodel", i.toString() + " : "+boardCardList.get(i).color + ", "+boardCardList.get(i).count + ", " + boardCardList.get(i).pattern+", "+boardCardList.get(i).shape)
         }
+        cardPack.addAll(boardCardList)
+        cardPack = cardPack.shuffled().toMutableList()
+        boardCardList = mutableListOf<Card>()
 
+        for (i in 0..11){
+            boardCardList.add(cardPack.get(i))
+        }
+        for (i in 0..11){
+            cardPack.removeAt(0)
+        }
+        Log.d("viewmodel", "after : "+boardCardList.size)
+        for(i in 0..boardCardList.lastIndex){
+            Log.d("viewmodel", i.toString() + " : "+boardCardList.get(i).color + ", "+boardCardList.get(i).count + ", " + boardCardList.get(i).pattern+", "+boardCardList.get(i).shape)
+        }
 
         _boardCard.value = boardCardList
         _boardCard.postValue(_boardCard.value)
     }
 
+    // 게임 종료 flag 설정
     public fun setEndGameFlag(value: Boolean){
         endGameFlaginViewModel = value
         _endGameFlag.value = endGameFlaginViewModel

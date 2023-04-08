@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -43,8 +44,16 @@ class BoardFragment : Fragment(), OnCardClick {
         binding.rcCards.layoutManager = GridLayoutManager(context, 4)
 
         gameViewModel.boardCard.observe(viewLifecycleOwner) {
-            binding.rcCards.layoutManager = GridLayoutManager(context, 4 + (it.size-12)/3)
+            binding.rcCards.layoutManager = GridLayoutManager(context, 4)
             adapter.boardCard = gameViewModel.boardCard.value!!
+
+            // set 없을 경우, Toast 팝업 후 새로고침
+            if (gameViewModel.checkAllSet() == 0){
+                Toast.makeText(context, "세트가 없어 새로고침합니다.",Toast.LENGTH_LONG).show()
+                gameViewModel.addNewCard()
+            }
+
+
         }
 
         gameViewModel.selectedCard.observe(viewLifecycleOwner) {
