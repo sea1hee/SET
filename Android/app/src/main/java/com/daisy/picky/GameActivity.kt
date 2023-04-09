@@ -38,11 +38,22 @@ class GameActivity : BaseActivity(), CustomDialogInterface {
         }
 
         binding.btnSets.setOnClickListener {
+            btnBackVisivility(View.GONE)
             binding.containerFound.visibility = View.VISIBLE
         }
         binding.btnReload.setOnClickListener {
             gameViewModel.addNewCard()
         }
+    }
+
+    public fun btnBackVisivility(value : Int) {
+        binding.btnBack.visibility = value
+        super.onPostResume()
+    }
+
+    override fun onBackPressed() {
+        val exitDialog = ExitDialog(this,this)
+        exitDialog.show()
     }
 
     public fun setFoundSetsOFF(){
