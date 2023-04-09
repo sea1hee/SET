@@ -38,7 +38,7 @@ class GameActivity : BaseActivity(), CustomDialogInterface {
         }
 
         binding.btnSets.setOnClickListener {
-            btnBackVisivility(View.GONE)
+            btnVisivility(View.GONE)
             binding.containerFound.visibility = View.VISIBLE
         }
         binding.btnReload.setOnClickListener {
@@ -46,9 +46,10 @@ class GameActivity : BaseActivity(), CustomDialogInterface {
         }
     }
 
-    public fun btnBackVisivility(value : Int) {
+    public fun btnVisivility(value : Int) {
         binding.btnBack.visibility = value
-        super.onPostResume()
+        binding.btnReload.visibility = value
+        binding.btnSets.visibility = value
     }
 
     override fun onBackPressed() {

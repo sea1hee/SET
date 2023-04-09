@@ -50,7 +50,7 @@ class FoundFragment : Fragment(), OnCardClick {
 
         binding.btnExit.setOnClickListener{
             (activity as GameActivity).setFoundSetsOFF()
-            (activity as GameActivity).btnBackVisivility(View.VISIBLE)
+            (activity as GameActivity).btnVisivility(View.VISIBLE)
         }
 
         return view
