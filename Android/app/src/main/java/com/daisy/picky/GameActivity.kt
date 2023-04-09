@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.daisy.picky.databinding.ActivityGameBinding
 import com.daisy.picky.found.FoundFragment
 
-class GameActivity : BaseActivity() {
+class GameActivity : BaseActivity(), CustomDialogInterface {
 
     val logTag = "GameActivity"
 
@@ -33,7 +33,8 @@ class GameActivity : BaseActivity() {
         }
 
         binding.btnBack.setOnClickListener {
-            finish()
+            val exitDialog = ExitDialog(this,this)
+            exitDialog.show()
         }
 
         binding.btnSets.setOnClickListener {
@@ -46,5 +47,12 @@ class GameActivity : BaseActivity() {
 
     public fun setFoundSetsOFF(){
         binding.containerFound.visibility = View.GONE
+    }
+
+    override fun onExitButtonClicked() {
+        finish()
+    }
+
+    override fun onStayButtonClicked() {
     }
 }

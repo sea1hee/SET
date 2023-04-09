@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FF0000</color>
+    <color name="transparent_5">#0D000000</color>
 
     <color name="game_background">#FF1C1C1D</color>
     <color name="card_background_normal">#FF2C2C2D</color>
@@ -25,6 +26,11 @@
 
 
 
-    <color name="btn_foundSet_fill">#FF2C2C2C</color>
-    <color name="btn_foundSet_stroke">#FFA5A5A5</color>
+    <color name="btn_normal_fill">#FF2C2C2C</color>
+    <color name="btn_normal_stroke">#FFA5A5A5</color>
+
+    <color name="btn_normal_light_fill">#FFF0F0F0</color>
+
+
+    <color name="btn_normal_light_font">#FF1C1C1C</color>
 </resources>
