@@ -21,6 +21,7 @@ class GameActivity : BaseActivity(), CustomDialogInterface {
         setContentView(binding.root)
 
         gameViewModel = ViewModelProvider(this)[GameViewModel::class.java]
+        Log.d("viewmodel", "GameActivity")
         gameViewModel.setGame(gameMode, cardPack.shuffled().toMutableList())
 
         setFoundSetsOFF()

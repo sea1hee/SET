@@ -92,7 +92,7 @@ class GameViewModel() : ViewModel() {
                         selectedCardList = mutableListOf<Int>()
                         _selectedCard.value = selectedCardList
                         _selectedCard.postValue(selectedCardList)
-                    }, 200)
+                    }, 20)
                     return false
                 }
             } else { // 3개 이하
@@ -174,10 +174,6 @@ class GameViewModel() : ViewModel() {
         }
         else {
             selectedCardList.sort()
-            Log.d(logtag,selectedCardList.size.toString()+" "+
-                selectedCardList.get(0).toString() + " " + selectedCardList.get(1)
-                    .toString() + " " + selectedCardList.get(2).toString()
-            )
 
             for (i in 0..selectedCardList.lastIndex) {
                 var curIndex = selectedCardList.get(i)
@@ -235,10 +231,7 @@ class GameViewModel() : ViewModel() {
         if (cardPack.size < 3){
             setEndGameFlag(true)
         }
-        Log.d("viewmodel", "before : "+boardCardList.size)
-        for(i in 0..boardCardList.lastIndex){
-            Log.d("viewmodel", i.toString() + " : "+boardCardList.get(i).color + ", "+boardCardList.get(i).count + ", " + boardCardList.get(i).pattern+", "+boardCardList.get(i).shape)
-        }
+
         cardPack.addAll(boardCardList)
         cardPack = cardPack.shuffled().toMutableList()
         boardCardList = mutableListOf<Card>()
@@ -248,10 +241,6 @@ class GameViewModel() : ViewModel() {
         }
         for (i in 0..11){
             cardPack.removeAt(0)
-        }
-        Log.d("viewmodel", "after : "+boardCardList.size)
-        for(i in 0..boardCardList.lastIndex){
-            Log.d("viewmodel", i.toString() + " : "+boardCardList.get(i).color + ", "+boardCardList.get(i).count + ", " + boardCardList.get(i).pattern+", "+boardCardList.get(i).shape)
         }
 
         _boardCard.value = boardCardList
