@@ -47,23 +47,16 @@ class BoardFragment : Fragment(), OnCardClick {
             binding.rcCards.layoutManager = GridLayoutManager(context, 4)
             adapter.boardCard = gameViewModel.boardCard.value!!
             // set 없을 경우, Toast 팝업 후 새로고침
-            if (gameViewModel.checkAllSet() == 0){
-                Toast.makeText(context, "세트가 없어 새로고침합니다.",Toast.LENGTH_LONG).show()
-                gameViewModel.addNewCard()
+            if (gameViewModel.checkAllSet() == 0) {
+                if (gameViewModel.addNewCard() == true) {
+                    Toast.makeText(context, "세트가 없어 새로고침합니다.", Toast.LENGTH_SHORT).show()
+                }
             }
-
-
         }
 
         gameViewModel.selectedCard.observe(viewLifecycleOwner) {
             adapter.selectedCard = gameViewModel.selectedCard.value!!
             adapter.notifyDataSetChanged()
-        }
-
-        gameViewModel.endGameFlag.observe(viewLifecycleOwner){
-            if (it){
-                activity?.finish()
-            }
         }
 
         return view

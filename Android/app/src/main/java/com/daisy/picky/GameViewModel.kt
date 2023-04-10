@@ -34,7 +34,7 @@ class GameViewModel() : ViewModel() {
     private var _cntAvailable = MutableLiveData<Int>()
     val cntAvailable: LiveData<Int> get() = _cntAvailable
 
-    private var endGameFlaginViewModel: Boolean = false
+    private var endGameFlaginViewModel: Boolean? = null
     private val _endGameFlag = MutableLiveData<Boolean>()
     val endGameFlag: LiveData<Boolean> get() = _endGameFlag
 
@@ -234,24 +234,29 @@ class GameViewModel() : ViewModel() {
 
     // 보드에 set가 될 카드가 없을 경우, 불려짐
     // 보드의 카드를 cardPack index 0 ~ 11 로 교체
-    public fun addNewCard(){
+    public fun addNewCard():Boolean{
         if (cardPack.size < 3){
-            setEndGameFlag(true)
+            setEndGameFlag(false)
+            return false
         }
+        else {
+            Log.d("viewmodel", "remain card Pack : " + cardPack.size.toString())
 
-        cardPack.addAll(boardCardList)
-        cardPack = cardPack.shuffled().toMutableList()
-        boardCardList = mutableListOf<Card>()
+            cardPack.addAll(boardCardList)
+            cardPack = cardPack.shuffled().toMutableList()
+            boardCardList = mutableListOf<Card>()
 
-        for (i in 0..11){
-            boardCardList.add(cardPack.get(i))
+            for (i in 0..11) {
+                boardCardList.add(cardPack.get(i))
+            }
+            for (i in 0..11) {
+                cardPack.removeAt(0)
+            }
+
+            _boardCard.value = boardCardList
+            _boardCard.postValue(_boardCard.value)
+            return true
         }
-        for (i in 0..11){
-            cardPack.removeAt(0)
-        }
-
-        _boardCard.value = boardCardList
-        _boardCard.postValue(_boardCard.value)
     }
 
     // 게임 종료 flag 설정
