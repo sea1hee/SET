@@ -56,6 +56,7 @@ class GameActivity : BaseActivity(), CustomDialogInterface {
     override fun onBackPressed() {
         if(binding.containerFound.visibility == View.VISIBLE) {
             binding.containerFound.visibility = View.GONE
+            btnVisivility(View.VISIBLE)
         }
         else {
             val exitDialog = ExitDialog(this, this)
