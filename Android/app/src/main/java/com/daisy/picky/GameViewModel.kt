@@ -30,6 +30,9 @@ class GameViewModel() : ViewModel() {
     private var _cntAnswer = MutableLiveData<Int>()
     val cntAnswer: LiveData<Int> get() = _cntAnswer
 
+    // 정답 개수
+    private var _cntAvailable = MutableLiveData<Int>()
+    val cntAvailable: LiveData<Int> get() = _cntAvailable
 
     private var endGameFlaginViewModel: Boolean = false
     private val _endGameFlag = MutableLiveData<Boolean>()
@@ -222,6 +225,10 @@ class GameViewModel() : ViewModel() {
         }
 
         Log.d(logtag, sets.size.toString() + " " + sets.toString())
+
+        _cntAvailable.value = sets.size
+        _cntAvailable.postValue(_cntAvailable.value)
+
         return sets.size
     }
 

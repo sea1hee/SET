@@ -21,16 +21,16 @@ class GameActivity : BaseActivity(), CustomDialogInterface {
         setContentView(binding.root)
 
         gameViewModel = ViewModelProvider(this)[GameViewModel::class.java]
-        Log.d("viewmodel", "GameActivity")
         gameViewModel.setGame(gameMode, cardPack.shuffled().toMutableList())
 
         setFoundSetsOFF()
 
         gameViewModel.cntAnswer.observe(this){
             binding.txtCount.text = it.toString() + " Set"
+        }
 
-            binding.txtExist.text = gameViewModel.checkAllSet().toString() + " Sets available"
-            Log.d(logTag, "cntAnswer"+it.toString())
+        gameViewModel.cntAvailable.observe(this){
+            binding.txtExist.text = it.toString() + " Sets available"
         }
 
         binding.btnBack.setOnClickListener {
