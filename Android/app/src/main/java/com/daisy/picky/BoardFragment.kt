@@ -44,14 +44,15 @@ class BoardFragment : Fragment(), OnCardClick {
         binding.rcCards.layoutManager = GridLayoutManager(context, 4)
 
         gameViewModel.boardCard.observe(viewLifecycleOwner) {
+            binding.rcCards.layoutManager = GridLayoutManager(context, 4)
             adapter.boardCard = gameViewModel.boardCard.value!!
-            Log.d("viewmodel", "boardCard Change")
             // set 없을 경우, Toast 팝업 후 새로고침
             if (gameViewModel.checkAllSet() == 0){
-                Log.d("viewmodel", "no set in boardfragment                           ")
                 Toast.makeText(context, "세트가 없어 새로고침합니다.",Toast.LENGTH_LONG).show()
                 gameViewModel.addNewCard()
             }
+
+
         }
 
         gameViewModel.selectedCard.observe(viewLifecycleOwner) {
@@ -82,12 +83,7 @@ class BoardFragment : Fragment(), OnCardClick {
 
         // 3개 선택 후 틀린 경우
         if (gameViewModel.setSelected(gameViewModel.getSelectedCard().contains(index), index) == false) {
-            Log.d("1animation", "boardFragment")
-            Log.d("1animation", selected!!.get(0).toString())
-            Log.d("1animation", selected!!.get(1).toString())
-            Log.d("1animation", selected!!.get(2).toString())
-            adapter.notifyItemRangeChanged(0,12, "anim")
-            Log.d("1animation", selected!!.size.toString())
+            adapter.notifyDataSetChanged()
         }
         else{
             adapter.notifyDataSetChanged()

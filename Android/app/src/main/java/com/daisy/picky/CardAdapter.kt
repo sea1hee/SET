@@ -101,7 +101,6 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        Log.d("1animation", "origin "+position.toString())
         holder.card.setOnClickListener{
             mCallback.selected(position)
         }
@@ -144,24 +143,6 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
 
     }
 
-
-
     override fun getItemCount() = boardCard.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: MutableList<Any>) {
-
-        Log.d("1animation", position.toString() +" "+ payloads.toString())
-        if (!payloads.isEmpty()){
-            for (any in payloads){
-                if (any == "anim"){
-                    Log.d("1animation", position.toString())
-                    val animation = AnimationUtils.loadAnimation(holder.card.context, R.anim.wave)
-                    holder.card.animation = animation
-                }
-            }
-        }
-        else{
-            super.onBindViewHolder(holder, position, payloads)
-        }
-    }
 }
