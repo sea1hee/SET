@@ -15,6 +15,8 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.daisy.picky.databinding.ActivityMainBinding
 import kotlin.random.Random
 import android.animation.ObjectAnimator.ofFloat
+import android.content.Context
+import com.kakao.sdk.user.UserApiClient
 
 private const val SNOWING_MESSAGE_ID = 10
 
@@ -67,10 +69,32 @@ class MainActivity : BaseActivity(), Handler.Callback  {
             //startGame()
         }
         binding.btnMode6.setOnClickListener {
-            Log.d(logTag, "select Logout mode btn")
-            gameMode = 6
-            preventGame()
-            //startGame()
+            prefs = this.getSharedPreferences("login", Context.MODE_PRIVATE)
+
+            if(preLoginMethod == GOOGLE_LOGIN){
+
+            }
+            else if(preLoginMethod == KAKAO_LOGIN) {
+                UserApiClient.instance.logout { error ->
+                    if (error != null) {
+                        Log.e(logTag, "로그아웃 실패. SDK에서 토큰 삭제됨", error)
+                    } else {
+                        Log.i(logTag, "로그아웃 성공. SDK에서 토큰 삭제됨")
+                    }
+                }
+            }
+            else if(preLoginMethod == NAVER_LOGIN){
+
+            }
+
+            preLoginMethod = EVER_LOGIN
+            preLoginId = ""
+            prefs.edit().putInt("method", EVER_LOGIN).apply()
+            prefs.edit().putString("token", "").apply()
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         binding.btnMode0.visibility = View.GONE
