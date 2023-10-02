@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "250671780448",
+    "project_id": "picky-43f6d",
+    "storage_bucket": "picky-43f6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250671780448:android:99b01c40d4d98a3dd72905",
+        "android_client_info": {
+          "package_name": "com.daisy.picky"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRy1sCrgadviz5beELcz_cTpQjOZG3AsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

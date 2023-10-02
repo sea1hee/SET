@@ -1,10 +1,23 @@
 package com.daisy.picky
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.common.util.SharedPreferencesUtils
 
 open class BaseActivity: AppCompatActivity() {
 
     companion object{
+
+        lateinit var prefs: SharedPreferences
+
+        val EVER_LOGIN = 0
+        val GOOGLE_LOGIN = 1
+        val KAKAO_LOGIN = 2
+        val NAVER_LOGIN = 3
+
+        lateinit var preLoginId: String
+        var preLoginMethod: Int = EVER_LOGIN
+
         var gameMode = 0
         private val GAME_MODE_SINGLE = 1
         private val GAME_MODE_MULTI = 2

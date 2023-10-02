@@ -30,6 +30,7 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.btnMode0.setOnClickListener{
             Log.d(logTag, "select Multi mode btn")
             gameMode = 0
@@ -71,6 +72,10 @@ class MainActivity : BaseActivity(), Handler.Callback  {
             preventGame()
             //startGame()
         }
+
+        binding.btnMode0.visibility = View.GONE
+        binding.btnMode3.visibility = View.GONE
+        binding.btnMode4.visibility = View.GONE
 
         delayedSnowing.sendEmptyMessageDelayed(SNOWING_MESSAGE_ID, 100)
     }
