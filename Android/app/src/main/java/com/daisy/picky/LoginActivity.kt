@@ -26,6 +26,8 @@ import com.kakao.sdk.common.model.KakaoSdkError
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.network.KakaoRetrofitConverterFactory
 import com.kakao.sdk.user.UserApiClient
+import com.navercorp.nid.NaverIdLoginSDK
+import com.navercorp.nid.oauth.OAuthLoginCallback
 
 
 class LoginActivity : BaseActivity() {
@@ -60,7 +62,9 @@ class LoginActivity : BaseActivity() {
 
         //TODO: Kakao-Login Initialize
 
-        //TODO : Naver-Login Initialize
+        //Naver-Login Initialize
+        NaverIdLoginSDK.initialize(this, BuildConfig.NAVER_API_CLIENT_ID,
+            BuildConfig.NAVER_API_CLIENT_SECRET, getString(R.string.app_name))
 
 
         binding.btnGoogleLogin.setOnClickListener {
@@ -70,15 +74,9 @@ class LoginActivity : BaseActivity() {
 
         binding.btnKakaoLogin.setOnClickListener {
             KaKaoSignIn()
-            /*
-            UserApiClient.instance.loginWithKakaoTalk(this) { token, error ->
-                if (error != null) {
-                    Toast.makeText(this, "카카오톡이 설치되어 있지 않습니다.", Toast.LENGTH_SHORT).show()
-                } else if (token != null) {
-                    Log.d(TAG, "로그인 성공 ${token.accessToken}")
-                }
-            }*/
         }
+
+        binding.btnNaverLogin.setOAuthLogin(naverCallback)
 
 
     }
@@ -127,7 +125,8 @@ class LoginActivity : BaseActivity() {
 
         }
         else if(preLoginMethod == NAVER_LOGIN){
-
+            Log.d(TAG, "Naver - Auto Login")
+            loginSuccess()
         }
 
         super.onStart()
@@ -275,6 +274,34 @@ class LoginActivity : BaseActivity() {
             }
         } else {
             UserApiClient.instance.loginWithKakaoAccount(this, callback = kakaoCallback)
+        }
+    }
+
+    // Naver Login Callback
+    /*
+    private val naverCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+        Log.e(TAG, "getCallback")
+        if (error != null) {
+            Log.e(TAG, "로그인 실패 $error")
+        } else if (token != null) {
+            Log.e(TAG, "로그인 성공 ${token.accessToken}")
+            setLoginInfo(NAVER_LOGIN, token.accessToken)
+            loginSuccess()
+        }
+    }*/
+
+    private val naverCallback = object : OAuthLoginCallback {
+        override fun onSuccess() {
+            setLoginInfo(NAVER_LOGIN, NaverIdLoginSDK.getAccessToken().toString())
+            loginSuccess()
+        }
+        override fun onFailure(httpStatus: Int, message: String) {
+            val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+            val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+            Log.e(TAG, "로그인 실패 : errorCode:$errorCode, errorDesc:$errorDescription")
+        }
+        override fun onError(errorCode: Int, message: String) {
+            onFailure(errorCode, message)
         }
     }
 

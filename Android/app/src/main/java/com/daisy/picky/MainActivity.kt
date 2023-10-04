@@ -17,6 +17,7 @@ import kotlin.random.Random
 import android.animation.ObjectAnimator.ofFloat
 import android.content.Context
 import com.kakao.sdk.user.UserApiClient
+import com.navercorp.nid.NaverIdLoginSDK
 
 private const val SNOWING_MESSAGE_ID = 10
 
@@ -84,7 +85,7 @@ class MainActivity : BaseActivity(), Handler.Callback  {
                 }
             }
             else if(preLoginMethod == NAVER_LOGIN){
-
+                NaverIdLoginSDK.logout()
             }
 
             preLoginMethod = EVER_LOGIN
