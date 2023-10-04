@@ -269,6 +269,8 @@ class LoginActivity : BaseActivity() {
                     UserApiClient.instance.loginWithKakaoAccount(this, callback = kakaoCallback)
                 } else if (token != null) {
                     Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
+                    setLoginInfo(KAKAO_LOGIN, token.accessToken)
+                    loginSuccess()
                 }
             }
         } else {
