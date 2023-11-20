@@ -1,17 +1,15 @@
-package com.daisy.picky
+package com.daisy.picky.game
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.daisy.picky.game.GameViewModel
+import com.daisy.picky.game.OnCardClick
 import com.daisy.picky.databinding.FragmentBoardBinding
 
 class BoardFragment : Fragment(), OnCardClick {
@@ -21,7 +19,7 @@ class BoardFragment : Fragment(), OnCardClick {
     private var _binding: FragmentBoardBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var adapter:CardAdapter
+    private lateinit var adapter: CardAdapter
     private lateinit var gameViewModel: GameViewModel
 
 

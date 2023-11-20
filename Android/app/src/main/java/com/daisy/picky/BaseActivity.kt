@@ -2,13 +2,17 @@ package com.daisy.picky
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.common.util.SharedPreferencesUtils
+import com.daisy.picky.game.Card
+
 
 open class BaseActivity: AppCompatActivity() {
 
     companion object{
 
         lateinit var prefs: SharedPreferences
+
+        //setTutorial true:첫 설치 , false:메뉴로진입
+        var isTutorial :Boolean = true
 
         val EVER_LOGIN = 0
         val GOOGLE_LOGIN = 1
@@ -34,7 +38,6 @@ open class BaseActivity: AppCompatActivity() {
 
         init {
         }
-
 
     }
 

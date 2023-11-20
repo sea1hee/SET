@@ -3,15 +3,10 @@ package com.daisy.picky.found
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.daisy.picky.Card
-import com.daisy.picky.R
+import com.daisy.picky.game.Card
 import com.daisy.picky.databinding.ItemFoundSetsBinding
 
 

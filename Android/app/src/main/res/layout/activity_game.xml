@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/game_background"
-    tools:context=".GameActivity">
+    tools:context=".game.GameActivity">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btn_back"
-        android:layout_width="11dp"
+        android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="21dp"
         android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
-
+        app:srcCompat="@drawable/back"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"/>
     <TextView
         android:id="@+id/txt_count"
         android:layout_width="wrap_content"

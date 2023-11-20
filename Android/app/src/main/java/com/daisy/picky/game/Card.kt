@@ -1,4 +1,4 @@
-package com.daisy.picky
+package com.daisy.picky.game
 
 data class Card(
     var color:Int,

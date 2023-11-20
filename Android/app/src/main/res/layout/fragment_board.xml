@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@color/game_background"
-    tools:context=".BoardFragment">
+    tools:context=".game.BoardFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_cards"

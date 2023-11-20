@@ -1,20 +1,15 @@
-package com.daisy.picky
+package com.daisy.picky.game
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.ImageView
-import androidx.annotation.NonNull
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.daisy.picky.game.OnCardClick
+import com.daisy.picky.R
 import com.google.android.material.card.MaterialCardView
-import com.google.android.material.datepicker.MaterialCalendar
-import java.security.AccessController.getContext
 
 
 class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
@@ -49,7 +44,7 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
             pattern5 = view.findViewById(R.id.card_5)
         }
 
-        fun setCount(curCard:Card){
+        fun setCount(curCard: Card){
             // 갯수
             val count = curCard.count
             if (count == 1){
@@ -115,7 +110,9 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
         // 카드 선택 여부 확인 selected
         if (selected) {
             holder.card.strokeWidth = 10
-            holder.card.strokeColor = ContextCompat.getColor(holder.card.context, R.color.card_stroke_selected)
+            holder.card.strokeColor = ContextCompat.getColor(holder.card.context,
+                R.color.card_stroke_selected
+            )
             /*
             holder.card.setCardBackgroundColor(
                 ContextCompat.getColor(
@@ -127,7 +124,9 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
              */
         }else {
             holder.card.strokeWidth = 3
-            holder.card.strokeColor = ContextCompat.getColor(holder.card.context, R.color.card_stroke_normal)
+            holder.card.strokeColor = ContextCompat.getColor(holder.card.context,
+                R.color.card_stroke_normal
+            )
             /*
             holder.card.setCardBackgroundColor(
                 ContextCompat.getColor(

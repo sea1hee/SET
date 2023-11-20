@@ -1,25 +1,17 @@
-package com.daisy.picky
+package com.daisy.picky.dialog
 
 import android.app.Dialog
 import android.content.Context
-import android.graphics.BlurMaskFilter
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
-import android.icu.number.NumberFormatter.with
-import android.icu.number.NumberRangeFormatter.with
-import android.os.Build
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.daisy.picky.R
 import jp.wasabeef.blurry.Blurry
-import java.util.function.Consumer
 
 
 class ExitDialog(context: Context,
-                 Interface: CustomDialogInterface) : Dialog(context) {
+                 Interface: CustomDialogInterface
+) : Dialog(context) {
 
     // 액티비티에서 인터페이스를 받아옴
     private var customDialogInterface: CustomDialogInterface = Interface

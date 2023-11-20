@@ -1,14 +1,16 @@
-package com.daisy.picky
+package com.daisy.picky.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.daisy.picky.R
 import jp.wasabeef.blurry.Blurry
 
 class PrepareDialog(val point:Int, context: Context,
-                     Interface: CustomDialogInterface) : Dialog(context){
+                     Interface: CustomDialogInterface
+) : Dialog(context){
 
     // 액티비티에서 인터페이스를 받아옴
     private var customDialogInterface: CustomDialogInterface = Interface
@@ -37,7 +39,7 @@ class PrepareDialog(val point:Int, context: Context,
         exitText = findViewById<TextView>(R.id.tx_exit)
 
         stayButton.text = "Again"
-        exitText.text = "Finish\nYou got " + point + " point"
+        exitText.text = "Finish\nYou got " + point + " points"
 
         exitButton.setOnClickListener {
             customDialogInterface.onExitButtonClicked()

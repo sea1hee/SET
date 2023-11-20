@@ -1,18 +1,14 @@
-package com.daisy.picky
+package com.daisy.picky.game
 
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
 class GameViewModel() : ViewModel() {
 
@@ -168,7 +164,7 @@ class GameViewModel() : ViewModel() {
 
         } else {
             plusAnswerScore = 0
-            plusPointScore = 2
+            plusPointScore = -2
             //_cntAnswer.value = _cntAnswer.value?.minus(0)
             //_cntAnswer.postValue(_cntAnswer.value)
 

@@ -1,19 +1,20 @@
-package com.daisy.picky
+package com.daisy.picky.game
 
 import android.graphics.Color
-import android.graphics.RenderEffect
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.Window
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import com.daisy.picky.BaseActivity
+import com.daisy.picky.R
 import com.daisy.picky.databinding.ActivityGameBinding
-import com.daisy.picky.found.FoundFragment
+import com.daisy.picky.dialog.CustomDialogInterface
+import com.daisy.picky.dialog.ExitDialog
+import com.daisy.picky.dialog.PrepareDialog
 
 class GameActivity : BaseActivity() {
 

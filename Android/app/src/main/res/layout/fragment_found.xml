@@ -22,15 +22,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btn_exit"
-        android:layout_width="11dp"
+        android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="21dp"
         android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back"/>
+        app:srcCompat="@drawable/back"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_foundsets"

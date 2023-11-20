@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.daisy.picky.GameActivity
-import com.daisy.picky.GameViewModel
-import com.daisy.picky.OnCardClick
+import com.daisy.picky.game.GameActivity
+import com.daisy.picky.game.GameViewModel
+import com.daisy.picky.game.OnCardClick
 import com.daisy.picky.databinding.FragmentFoundBinding
 
 

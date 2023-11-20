@@ -1,4 +1,4 @@
-package com.daisy.picky
+package com.daisy.picky.dialog
 
 interface CustomDialogInterface {
     fun onExitButtonClicked()
