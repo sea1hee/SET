@@ -37,7 +37,6 @@
         android:id="@+id/txt_exist"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:text="0 Sets available"
         android:textColor="@color/white"
@@ -46,9 +45,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_count" />
 
+    <TextView
+        android:id="@+id/txt_point"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginEnd="20dp"
+        android:text="0 Points"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:fontFamily="@font/poppins_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_exist" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_board"
-        android:name="com.daisy.picky.BoardFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
@@ -83,13 +93,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/reload" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btn_sets"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="103dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
-        app:srcCompat="@drawable/btn_found_sets"
+        android:padding="0dp"
+        app:srcCompat="@drawable/btn_found_set"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

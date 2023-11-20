@@ -16,8 +16,16 @@ import com.daisy.picky.databinding.ActivityMainBinding
 import kotlin.random.Random
 import android.animation.ObjectAnimator.ofFloat
 import android.content.Context
+import android.database.Observable
 import com.kakao.sdk.user.UserApiClient
 import com.navercorp.nid.NaverIdLoginSDK
+import io.reactivex.Flowable.just
+import io.reactivex.Maybe.just
+import io.reactivex.Observable.just
+import io.reactivex.Single.just
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.subjects.PublishSubject
+import java.util.concurrent.TimeUnit
 
 private const val SNOWING_MESSAGE_ID = 10
 
@@ -32,6 +40,15 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        var subject: PublishSubject<Int> = PublishSubject.create()
+        val mCompositeDisposable = CompositeDisposable()
+
+        val disposable = subject.throttleFirst(3, TimeUnit.SECONDS)
+            .subscribe{
+                binding.btnMode1.callOnClick()
+            }
+        mCompositeDisposable.add(disposable)
 
 
         binding.btnMode0.setOnClickListener{
@@ -101,6 +118,7 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding.btnMode0.visibility = View.GONE
         binding.btnMode3.visibility = View.GONE
         binding.btnMode4.visibility = View.GONE
+        binding.btnMode6.visibility = View.GONE
 
         delayedSnowing.sendEmptyMessageDelayed(SNOWING_MESSAGE_ID, 100)
     }
@@ -131,13 +149,15 @@ class MainActivity : BaseActivity(), Handler.Callback  {
     }
 
     private fun snowing(snowObj : AppCompatImageView) {
-        binding.layoutMain.addView(snowObj)
+
+        /*
+        //binding.layoutMain.addView(snowObj)
 
         val startPointX = Random.nextFloat() * binding.layoutMain.width - (0.5 * binding.layoutMain.width).toFloat()
         val endPointX = Random.nextFloat() * binding.layoutMain.width
         val moverX = ofFloat(snowObj, View.TRANSLATION_X, startPointX, endPointX)
 
-        Log.d("viewmodel",startPointX.toString())
+        //Log.d("viewmodel",startPointX.toString())
 
         val snowHeight = snowObj.measuredHeight * snowObj.scaleY
         val startPointY = -snowHeight
@@ -155,7 +175,8 @@ class MainActivity : BaseActivity(), Handler.Callback  {
                 }
             })
         }
-        set.start()
+        */
+        //set.start()
     }
 
     private fun makeSnowObject() = AppCompatImageView(this).apply {

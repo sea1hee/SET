@@ -18,8 +18,8 @@ import java.security.AccessController.getContext
 
 
 class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
-    lateinit var boardCard: List<Card>
-    lateinit var selectedCard: List<Int>
+    var boardCard: List<Card> = listOf<Card>()
+    var selectedCard: List<Int> = listOf<Int>()
     var context: Context = context
 
     interface OnItemClickListener {

@@ -33,21 +33,9 @@ open class BaseActivity: AppCompatActivity() {
         var cardPack :MutableList<Card> = mutableListOf<Card>()
 
         init {
-            initCardPack()
         }
 
-        public fun initCardPack(){
-            for (i in 1..dimen){
-                for (j in 1..dimen){
-                    for (k in 1..dimen){
-                        for (l in 1..dimen){
-                            cardPack.add(Card(i,j,k,l))
-                        }
-                    }
-                }
-            }
 
-        }
     }
 
 

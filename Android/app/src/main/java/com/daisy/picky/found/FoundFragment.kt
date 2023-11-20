@@ -40,7 +40,7 @@ class FoundFragment : Fragment(), OnCardClick {
         adapter = FoundCardAdapter(requireContext())
         adapter.foundCard = gameViewModel.matchCard.value!!
         binding.rcFoundsets.adapter = adapter
-        binding.rcFoundsets.layoutManager = GridLayoutManager(context, 3)
+        binding.rcFoundsets.layoutManager = GridLayoutManager(context, 1)
 
         gameViewModel.matchCard.observe(viewLifecycleOwner) {
             adapter.foundCard = it!!

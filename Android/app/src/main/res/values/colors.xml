@@ -33,4 +33,6 @@
 
 
     <color name="btn_normal_light_font">#FF1C1C1C</color>
+
+    <color name="dialog_background">#4D000000</color>
 </resources>

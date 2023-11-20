@@ -70,4 +70,13 @@ dependencies {
 
     //naver login
     implementation 'com.navercorp.nid:oauth-jdk8:5.8.0' // jdk 8
+
+    implementation 'jp.wasabeef:blurry:4.0.1'
+
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
+
+    implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
 }
