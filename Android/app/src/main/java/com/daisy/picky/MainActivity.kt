@@ -34,6 +34,14 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 첫 설치 여부 확인
+        prefs = this.getSharedPreferences("picky", MODE_PRIVATE)
+        isTutorial = prefs.getBoolean("tutorial", true)
+
+        if(isTutorial){
+            startTutorial()
+        }
+
         var subject: PublishSubject<Int> = PublishSubject.create()
         val mCompositeDisposable = CompositeDisposable()
 
@@ -76,8 +84,8 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding.btnMode5.setOnClickListener {
             Log.d(logTag, "select Tutorial mode btn")
             gameMode = 5
-            preventGame()
             //startGame()
+            startTutorial()
         }
         binding.btnMode6.setOnClickListener {
             prefs = this.getSharedPreferences("login", Context.MODE_PRIVATE)
@@ -114,6 +122,12 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding.btnMode6.visibility = View.GONE
 
         delayedSnowing.sendEmptyMessageDelayed(SNOWING_MESSAGE_ID, 100)
+    }
+
+    private fun startTutorial() {
+
+        val intent = Intent(this, TutorialActivity::class.java)
+        startActivity(intent)
     }
 
     private fun startGame(){

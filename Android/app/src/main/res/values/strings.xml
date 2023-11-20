@@ -2,4 +2,9 @@
     <string name="app_name">PICKY</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="color_u"><u>Color</u></string>
+    <string name="pattern_u"><u>Pattern</u></string>
+    <string name="number_u"><u>Number</u></string>
+    <string name="symbol_u"><u>Symbol</u></string>
 </resources>
