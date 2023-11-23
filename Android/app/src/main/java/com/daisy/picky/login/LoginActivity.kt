@@ -47,6 +47,7 @@ class LoginActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        /*
         var keyHash = Utility.getKeyHash(this)
         Log.v(TAG, keyHash)
 
@@ -79,7 +80,7 @@ class LoginActivity : BaseActivity() {
 
         binding.btnNaverLogin.setOAuthLogin(naverCallback)
 
-
+*/
     }
 
 

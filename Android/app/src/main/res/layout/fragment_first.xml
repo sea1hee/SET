@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -36,8 +37,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_color_1"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/tutorial_1_1"
         app:layout_constraintEnd_toStartOf="@+id/img_color_2"
@@ -45,8 +46,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_color_2"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/tutorial_1_2"
         app:layout_constraintEnd_toStartOf="@+id/img_color_3"
@@ -54,8 +55,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_color_3"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="30dp"
         android:src="@drawable/tutorial_1_3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:text="@string/pattern_u"
         android:textColor="#FFF0F0F0"
         android:textSize="30sp"
@@ -76,8 +77,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_pattern_1"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/tutorial_2_1"
         app:layout_constraintEnd_toStartOf="@+id/img_pattern_2"
@@ -85,8 +86,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_pattern_2"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/tutorial_2_2"
         app:layout_constraintEnd_toStartOf="@+id/img_pattern_3"
@@ -94,8 +95,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_pattern_3"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="30dp"
         android:src="@drawable/tutorial_2_3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:text="@string/number_u"
         android:textColor="#FFF0F0F0"
         android:textSize="30sp"
@@ -116,8 +117,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_number_1"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/tutorial_3_1"
         app:layout_constraintEnd_toStartOf="@+id/img_number_2"
@@ -125,8 +126,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_number_2"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/tutorial_3_2"
         app:layout_constraintEnd_toStartOf="@+id/img_number_3"
@@ -134,8 +135,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_number_3"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="30dp"
         android:src="@drawable/tutorial_3_3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:text="@string/symbol_u"
         android:textColor="#FFF0F0F0"
         android:textSize="30sp"
@@ -156,8 +157,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_symbol_1"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/tutorial_4_1"
         app:layout_constraintEnd_toStartOf="@+id/img_symbol_2"
@@ -165,8 +166,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_symbol_2"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/tutorial_4_2"
         app:layout_constraintEnd_toStartOf="@+id/img_symbol_3"
@@ -174,8 +175,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_symbol_3"
-        android:layout_width="55dp"
-        android:layout_height="82dp"
+        android:layout_width="53dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="30dp"
         android:src="@drawable/tutorial_4_3"
         app:layout_constraintEnd_toEndOf="parent"
