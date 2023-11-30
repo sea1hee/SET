@@ -74,17 +74,24 @@ class TutorialActivity : BaseActivity() {
         binding.btnNext.setOnClickListener {
 
             var curPage = binding.vpTutorial.currentItem
-            curPage += 1
-
             if (curPage == 4){
-                binding.btnNext.visibility = View.INVISIBLE
-                binding.btnPrev.visibility = View.VISIBLE
-                binding.vpTutorial.setCurrentItem(curPage, true)
-            } else if (curPage < 4) {
-                binding.btnNext.visibility = View.VISIBLE
-                binding.btnPrev.visibility = View.VISIBLE
-                binding.vpTutorial.setCurrentItem(curPage, true)
+                finish()
+            }else {
+                curPage += 1
+
+                if (curPage == 4){
+                    binding.btnNext.text ="DONE"
+                    binding.btnNext.visibility = View.VISIBLE
+                    binding.btnPrev.visibility = View.VISIBLE
+                    binding.vpTutorial.setCurrentItem(curPage, true)
+                } else if (curPage < 4) {
+                    binding.btnNext.visibility = View.VISIBLE
+                    binding.btnPrev.visibility = View.VISIBLE
+                    binding.vpTutorial.setCurrentItem(curPage, true)
+                }
             }
+
+
 
         }
         binding.btnPrev.setOnClickListener {
@@ -98,6 +105,7 @@ class TutorialActivity : BaseActivity() {
 
                 binding.vpTutorial.setCurrentItem(curPage, true)
             } else if (curPage > 0) {
+                binding.btnNext.text ="NEXT"
                 binding.btnNext.visibility = View.VISIBLE
                 binding.btnPrev.visibility = View.VISIBLE
 
