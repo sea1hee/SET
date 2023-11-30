@@ -20,12 +20,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
+
     <TextView
         android:id="@+id/txt_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:height="60dp"
         android:includeFontPadding="false"
@@ -33,8 +33,8 @@
         android:textColor="@color/white"
         android:textSize="50sp"
         app:fontFamily="@font/poppins_semibold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+        app:layout_constraintBottom_toTopOf="@+id/txt_exist"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/txt_exist"
@@ -45,20 +45,20 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:fontFamily="@font/poppins_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_count" />
+        app:layout_constraintBottom_toTopOf="@+id/txt_point"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/txt_point"
         android:layout_width="wrap_content"
-        android:layout_height="26dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="20dp"
         android:text="0 Points"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:fontFamily="@font/poppins_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_exist" />
+        app:layout_constraintBottom_toTopOf="@+id/fragment_container_board"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_board"
