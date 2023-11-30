@@ -30,7 +30,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
-        android:text="The shapes on the three cards must all be the same or all be different."
+        android:text="The color on the three cards must all be the same or all be different."
         android:textColor="@color/tutorial_text"
         android:textSize="18dp"
         app:fontFamily="@font/poppins_light"
