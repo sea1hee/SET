@@ -74,6 +74,7 @@ class GameViewModel() : ViewModel() {
         Log.d("loading", "GameActivity: setGame, progress 30")
         CoroutineScope(Main).launch() {
             //setProgress(50)
+            boardCardList = mutableListOf<Card>()
             val resultInitCard = async(IO) {initCardPack(gm)}
 
             if (resultInitCard.await() != null) {

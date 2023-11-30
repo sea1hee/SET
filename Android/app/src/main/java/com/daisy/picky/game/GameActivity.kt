@@ -44,6 +44,7 @@ class GameActivity : BaseActivity() {
     var subject: PublishSubject<Int> = PublishSubject.create()
     val mCompositeDisposable = CompositeDisposable()
 
+    private lateinit var fragmentTransaction: FragmentTransaction
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +56,7 @@ class GameActivity : BaseActivity() {
         setContainerLoading(View.VISIBLE)
         gameViewModel.setLoading()
 
-        val fragmentTransaction: FragmentTransaction =
-            supportFragmentManager.beginTransaction()
+        fragmentTransaction = supportFragmentManager.beginTransaction()
         // add를 통해 container에 Fragment 추가
         fragmentTransaction.add(R.id.fragment_container_board, BoardFragment())
         fragmentTransaction.setReorderingAllowed(true)
@@ -120,10 +120,9 @@ class GameActivity : BaseActivity() {
                 }
                 //again
                 override fun onStayButtonClicked() {
-                    finish()
                     // TODO: again
-                    //gameViewModel.setGame(gameMode)
-                    //btnVisivility(View.VISIBLE)
+                    btnVisivility(View.VISIBLE)
+                    gameViewModel.setGame(gameMode)
                 }
 
             })
