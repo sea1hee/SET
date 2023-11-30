@@ -8,18 +8,6 @@
     android:background="@color/game_background"
     tools:context=".tutorial.SecondFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tx_tutorial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:text="Tutorial"
-        android:textColor="@color/tutorial_text"
-        android:textSize="50sp"
-        app:fontFamily="@font/poppins_semibold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -33,7 +21,7 @@
         android:textSize="20dp"
         app:fontFamily="@font/poppins_semibold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tx_tutorial" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tx_color_detail"
