@@ -37,8 +37,10 @@ class BoardFragment : Fragment(), OnCardClick {
         gameViewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
 
         adapter = CardAdapter(this, requireContext())
-        adapter.boardCard = gameViewModel.boardCard.value!!
-        adapter.selectedCard = gameViewModel.selectedCard.value!!
+        adapter.boardCard = listOf<Card>()
+        //adapter.boardCard = gameViewModel.boardCard.value!!
+        adapter.selectedCard = listOf<Int>()
+        //adapter.selectedCard = gameViewModel.selectedCard.value!!
         binding.rcCards.adapter = adapter
         binding.rcCards.layoutManager = GridLayoutManager(context, 4)
 

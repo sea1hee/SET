@@ -10,8 +10,15 @@
         <item name="colorSecondaryVariant">@color/transparent</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/game_background</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
 
+        <item name="android:navigationBarColor">@color/game_background</item>
+
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/game_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/splash_icon</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">10000</item>
+        <item name="postSplashScreenTheme">@style/Theme.PICKY</item>
     </style>
+
 </resources>

@@ -2,6 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/popup_exit"
     android:layout_width="290dp"
     android:layout_height="132dp"
@@ -73,6 +74,26 @@
                 app:fontFamily="@font/poppins_semibold" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_close"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_normal_light"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="Close"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_normal_light_font"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:fontFamily="@font/poppins_semibold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tx_exit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

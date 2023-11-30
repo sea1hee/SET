@@ -1,5 +1,7 @@
 package com.daisy.picky
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -11,6 +13,16 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.daisy.picky.databinding.ActivityMainBinding
 import kotlin.random.Random
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.view.Window
+import android.view.animation.AnticipateInterpolator
+import androidx.core.animation.doOnEnd
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.daisy.picky.dialog.CustomDialogInterface
+import com.daisy.picky.dialog.ExitDialog
+import com.daisy.picky.dialog.ReadyDialog
 import com.daisy.picky.game.GameActivity
 import com.daisy.picky.login.LoginActivity
 import com.daisy.picky.tutorial.TutorialActivity
@@ -29,9 +41,14 @@ class MainActivity : BaseActivity(), Handler.Callback  {
     private var isSnowing: Boolean = true
     private val delayedSnowing: Handler = Handler(this)
 
+    private lateinit var splashScreen: SplashScreen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+
+        splashScreen = installSplashScreen()
+
         setContentView(binding.root)
 
         // 첫 설치 여부 확인
@@ -55,7 +72,7 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding.btnMode0.setOnClickListener{
             Log.d(logTag, "select Multi mode btn")
             gameMode = 0
-            preventGame()
+            readyGame()
             //startGame()
         }
         binding.btnMode1.setOnClickListener{
@@ -66,19 +83,19 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding.btnMode2.setOnClickListener {
             Log.d(logTag, "select Expert mode btn")
             gameMode = 2
-            preventGame()
+            readyGame()
             //startGame()
         }
         binding.btnMode3.setOnClickListener {
             Log.d(logTag, "select My Rank mode btn")
             gameMode = 3
-            preventGame()
+            readyGame()
             //startGame()
         }
         binding.btnMode4.setOnClickListener{
             Log.d(logTag, "select Encyclopedia mode btn")
             gameMode = 4
-            preventGame()
+            readyGame()
             //startGame()
         }
         binding.btnMode5.setOnClickListener {
@@ -218,5 +235,29 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         }
 
         return true
+    }
+
+    fun readyGame(){
+        val readyDialog = ReadyDialog(this)
+        readyDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        readyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        readyDialog.show()
+    }
+
+    // splash의 애니메이션 설정
+    private fun startSplash() {
+        splashScreen.setOnExitAnimationListener { splashScreenView ->
+            val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1f, 5f, 1f)
+            val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f, 5f, 1f)
+
+            ObjectAnimator.ofPropertyValuesHolder(splashScreenView.iconView, scaleX, scaleY).run {
+                interpolator = AnticipateInterpolator()
+                duration = 1000L
+                doOnEnd {
+                    splashScreenView.remove()
+                }
+                start()
+            }
+        }
     }
 }

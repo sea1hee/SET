@@ -12,6 +12,7 @@ import com.daisy.picky.game.GameActivity
 import com.daisy.picky.game.GameViewModel
 import com.daisy.picky.game.OnCardClick
 import com.daisy.picky.databinding.FragmentFoundBinding
+import com.daisy.picky.game.Card
 
 
 class FoundFragment : Fragment(), OnCardClick {
@@ -38,7 +39,8 @@ class FoundFragment : Fragment(), OnCardClick {
         gameViewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
 
         adapter = FoundCardAdapter(requireContext())
-        adapter.foundCard = gameViewModel.matchCard.value!!
+        adapter.foundCard = listOf<List<Card>>()
+        //adapter.foundCard = gameViewModel.matchCard.value!!
         binding.rcFoundsets.adapter = adapter
         binding.rcFoundsets.layoutManager = GridLayoutManager(context, 1)
 
@@ -49,7 +51,7 @@ class FoundFragment : Fragment(), OnCardClick {
         }
 
         binding.btnExit.setOnClickListener{
-            (activity as GameActivity).setFoundSetsOFF()
+            (activity as GameActivity).setContainerFound(View.GONE)
             (activity as GameActivity).btnVisivility(View.VISIBLE)
         }
 

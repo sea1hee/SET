@@ -40,6 +40,7 @@ class TutorialActivity : BaseActivity() {
         vpAdapter.addFragment(FourthFragment())
         vpAdapter.addFragment(FifthFragment())
         binding.vpTutorial.adapter = vpAdapter
+        binding.vpTutorial.setUserInputEnabled(false)
 
         binding.vpTutorial.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {

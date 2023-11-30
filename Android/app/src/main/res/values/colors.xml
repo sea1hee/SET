@@ -37,4 +37,6 @@
     <color name="dialog_background">#4D000000</color>
 
     <color name="tutorial_text">#FFF0F0F0</color>
+
+    <color name="progress">#FFFF3696</color>
 </resources>

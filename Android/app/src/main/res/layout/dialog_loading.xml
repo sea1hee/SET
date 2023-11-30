@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/game_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/prgr_loading"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="76dp"
+        android:progressDrawable="@drawable/progressbar_loading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/tx_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Loading ..."
+        android:textColor="#FFA5A5A5"
+        android:fontFamily="@font/poppins_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prgr_loading" />
+
+    <ImageView
+        android:id="@+id/card_1"
+        android:layout_width="127dp"
+        android:layout_height="129dp"
+        android:layout_marginBottom="11dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loading_2"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/card_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/card_2"
+        android:layout_width="127dp"
+        android:layout_height="129dp"
+        android:layout_marginBottom="11dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loading_3"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/card_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/card_3"
+        android:layout_width="127dp"
+        android:layout_height="129dp"
+        android:layout_marginBottom="33dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loading_1"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/prgr_loading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/card_4"
+        android:layout_width="127dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="33dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loading_2"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tx_loading" />
+
+    <ImageView
+        android:id="@+id/card_5"
+        android:layout_width="127dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="11dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loading_1"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_4" />
+
+    <ImageView
+        android:id="@+id/card_6"
+        android:layout_width="127dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="11dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loading_3"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

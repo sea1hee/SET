@@ -7,8 +7,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import java.lang.Thread.sleep
 
 class GameViewModel() : ViewModel() {
 
@@ -49,39 +54,59 @@ class GameViewModel() : ViewModel() {
     val matchCard: LiveData<List<List<Card>>> get() = _matchedCard
 
 
-    fun setGame(gm :Int){
-        Log.d("viewModel", "setGame")
-        viewModelScope.launch(Dispatchers.IO) {
+    private var _progress = MutableLiveData<Int>()
+    val progress: LiveData<Int> get() = _progress
 
-            cardPack = mutableListOf<Card>()
-            initCardPack()
-            cardPack = cardPack.shuffled().toMutableList()
-            gameMode = gm
-
-            for (i in 0..11) {
-                boardCardList.add(cardPack.get(0))
-                cardPack.removeAt(0)
-            }
-        }
-
-        _boardCard.value = boardCardList
-        _boardCard.postValue(_boardCard.value)
-
-        _selectedCard.value = selectedCardList
-        _selectedCard.postValue(selectedCardList)
-
-        _matchedCard.value = matchedCardList
-        _matchedCard.postValue(_matchedCard.value)
-
-        _cntAnswer.value = 0
-        _cntAnswer.postValue(_cntAnswer.value)
-
-        _point.value = 0
-        _point.postValue(_point.value)
-
+    init{
+        //setProgress(0)
     }
 
-    public fun initCardPack(){
+    fun setProgress(p: Int){
+        _progress.postValue(p)
+    }
+
+    fun setGame(gm :Int){
+        //setProgress(30)
+        //sleep(1000)
+
+        Log.d("viewModel", "setGame")
+
+        Log.d("loading", "GameActivity: setGame, progress 30")
+        CoroutineScope(Main).launch() {
+            //setProgress(50)
+            val resultInitCard = async(IO) {initCardPack(gm)}
+
+            if (resultInitCard.await() != null) {
+
+                //setProgress(80)
+                Log.d("loading", boardCardList.toString())
+                Log.d("loading", "GameActivity: setProgress 75")
+
+                _boardCard.value = boardCardList
+                _boardCard.postValue(_boardCard.value)
+
+                _selectedCard.value = selectedCardList
+                _selectedCard.postValue(selectedCardList)
+
+                _matchedCard.value = matchedCardList
+                _matchedCard.postValue(_matchedCard.value)
+
+                _cntAnswer.value = 0
+                _cntAnswer.postValue(_cntAnswer.value)
+
+                _point.value = 0
+                _point.postValue(_point.value)
+
+                //setProgress(100)
+
+            }
+        }
+    }
+
+    suspend fun initCardPack(gm: Int){
+
+        cardPack = mutableListOf<Card>()
+
         for (i in 1..3){
             for (j in 1..3){
                 for (k in 1..3){
@@ -90,6 +115,14 @@ class GameViewModel() : ViewModel() {
                     }
                 }
             }
+        }
+
+        cardPack = cardPack.shuffled().toMutableList()
+        gameMode = gm
+
+        for (i in 0..11) {
+            boardCardList.add(cardPack.get(0))
+            cardPack.removeAt(0)
         }
 
     }
@@ -298,6 +331,9 @@ class GameViewModel() : ViewModel() {
     // 보드에 set가 될 카드가 없을 경우, 불려짐
     // 보드의 카드를 cardPack index 0 ~ 11 로 교체
     public fun addNewCard():Boolean{
+        _point.value = point.value?.plus(-1)
+        _point.postValue(_point.value)
+
         if (cardPack.size < 3){
             Log.d("theif", "addNewCard")
             setEndGameFlag(false)
@@ -305,6 +341,11 @@ class GameViewModel() : ViewModel() {
         }
         else {
             Log.d("viewmodel", "remain card Pack : " + cardPack.size.toString())
+
+            selectedCardList = mutableListOf<Int>()
+            _selectedCard.value = selectedCardList
+            _selectedCard.postValue(selectedCardList)
+
 
             cardPack.addAll(boardCardList)
             cardPack = cardPack.shuffled().toMutableList()
@@ -331,5 +372,9 @@ class GameViewModel() : ViewModel() {
 
     fun getPoint(): Int {
         return point.value!!
+    }
+
+    fun setLoading() {
+        setProgress(0)
     }
 }
