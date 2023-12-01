@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginEnd="76dp"
+        android:progress="25"
         android:progressDrawable="@drawable/progressbar_loading"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
