@@ -27,12 +27,7 @@ class PrepareDialog(val point:Int, context: Context,
         dialogView = findViewById(R.id.popup_exit)
         dialogView.setBackgroundResource(R.drawable.dialog_popup)
 
-        Blurry.with(context)
-            .radius(25)
-            .sampling(2)
-            .async()
-            .animate(500)
-            .onto(dialogView)
+        Blur.setDialogBlur(window!!)
 
         exitButton = findViewById(R.id.btn_yes)
         stayButton = findViewById(R.id.btn_no)

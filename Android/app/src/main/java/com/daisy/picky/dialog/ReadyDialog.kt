@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.daisy.picky.R
 import jp.wasabeef.blurry.Blurry
+import com.daisy.picky.dialog.Blur
 
 class ReadyDialog(context: Context
 ) : Dialog(context) {
@@ -24,6 +25,14 @@ class ReadyDialog(context: Context
 
         dialogView = findViewById(R.id.popup_exit)
         dialogView.setBackgroundResource(R.drawable.dialog_popup)
+
+        Blur.setDialogBlur(window!!)
+
+        //val map = BlurBuilder.takeScreenShot(this)
+        //val fast: Bitmap = BlurBuilder.fastblur(map, 10)
+        //val draw: Drawable = BitmapDrawable(resources, fast)
+        //readyDialog.getWindow()!!.setBackgroundDrawable(draw)
+
 
         Blurry.with(context)
             .radius(25)

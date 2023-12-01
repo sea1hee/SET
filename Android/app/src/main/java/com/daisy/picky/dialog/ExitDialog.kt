@@ -2,7 +2,9 @@ package com.daisy.picky.dialog
 
 import android.app.Dialog
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.daisy.picky.R
@@ -27,12 +29,7 @@ class ExitDialog(context: Context,
         dialogView = findViewById(R.id.popup_exit)
         dialogView.setBackgroundResource(R.drawable.dialog_popup)
 
-        Blurry.with(context)
-            .radius(25)
-            .sampling(2)
-            .async()
-            .animate(500)
-            .onto(dialogView)
+        Blur.setDialogBlur(window!!)
 
         exitButton = findViewById(R.id.btn_yes)
         stayButton = findViewById(R.id.btn_no)
