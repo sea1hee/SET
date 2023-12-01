@@ -102,11 +102,11 @@ class GameActivity : BaseActivity() {
             Log.d("loading", "GameActivity: observe point")
             point = it
             if(point < 0){
-                binding.txtPoint.setTextColor(Color.RED);
+                //binding.txtPoint.setTextColor(Color.RED);
             } else {
-                binding.txtPoint.setTextColor(Color.WHITE);
+                //binding.txtPoint.setTextColor(Color.WHITE);
             }
-            binding.txtPoint.text = it.toString() + " Points"
+            //binding.txtPoint.text = it.toString() + " Points"
 
         }
 

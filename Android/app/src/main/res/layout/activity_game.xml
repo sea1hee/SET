@@ -36,25 +36,14 @@
         app:layout_constraintBottom_toTopOf="@+id/txt_exist"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/txt_exist"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_marginEnd="20dp"
-        android:text="0 Sets available"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:fontFamily="@font/poppins_light"
-        app:layout_constraintBottom_toTopOf="@+id/txt_point"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/txt_point"
+        android:id="@+id/txt_exist"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
-        android:text="0 Points"
+        android:text="0 Sets available"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:fontFamily="@font/poppins_light"
