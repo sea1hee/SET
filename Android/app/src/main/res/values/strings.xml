@@ -22,7 +22,7 @@
 
     <!-- Tutorial  -->
     <string name="color_u"><u>Color</u></string>
-    <string name="pattern_u" translatable="false"><u>Pattern</u></string>
+    <string name="pattern_u"><u>Pattern</u></string>
     <string name="number_u"><u>Number</u></string>
     <string name="symbol_u"><u>Shape</u></string>
     <string name="_2023_mousehouse">ⓒ 2023 MouseHouse.</string>

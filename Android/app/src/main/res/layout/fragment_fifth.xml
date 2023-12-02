@@ -16,7 +16,6 @@
         android:layout_marginTop="15dp"
         android:text="@string/symbol_u"
         android:textAppearance="@style/rules_element_title"
-        app:fontFamily="@font/poppins_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +28,6 @@
         android:layout_marginEnd="40dp"
         android:text="@string/symbol_detail"
         android:textAppearance="@style/rules_element_description"
-        app:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tx_symbol" />
@@ -50,8 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="①"
-            android:textAppearance="@style/rules_element_example"
-            app:fontFamily="@font/poppins_semibold" />
+            android:textAppearance="@style/rules_element_example" />
 
 
         <com.google.android.material.card.MaterialCardView
@@ -197,8 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="②"
-            android:textAppearance="@style/rules_element_example"
-            app:fontFamily="@font/poppins_semibold" />
+            android:textAppearance="@style/rules_element_example" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card2_1"

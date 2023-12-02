@@ -24,9 +24,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:text="@string/color_u"
-            android:textColor="#FFF0F0F0"
-            android:textSize="18sp"
-            app:fontFamily="@font/poppins_semibold"
+            android:textAppearance="@style/rules_element_title_u"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,9 +62,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="80dp"
             android:text="@string/pattern_u"
-            android:textColor="#FFF0F0F0"
-            android:textSize="18sp"
-            app:fontFamily="@font/poppins_semibold"
+            android:textAppearance="@style/rules_element_title_u"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_color" />
 
@@ -104,9 +100,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="80dp"
             android:text="@string/number_u"
-            android:textColor="#FFF0F0F0"
-            android:textSize="18sp"
-            app:fontFamily="@font/poppins_semibold"
+            android:textAppearance="@style/rules_element_title_u"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_pattern" />
 
@@ -144,9 +138,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="80dp"
             android:text="@string/symbol_u"
-            android:textColor="#FFF0F0F0"
-            android:textSize="18sp"
-            app:fontFamily="@font/poppins_semibold"
+            android:textAppearance="@style/rules_element_title_u"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_number" />
 

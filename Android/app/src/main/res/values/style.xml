@@ -3,21 +3,32 @@
     <style name = "rules_title">
         <item name="android:textSize">40sp</item>
         <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name = "rules_element_title">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name = "rules_element_description">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_medium</item>
     </style>
 
     <style name = "rules_element_example">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name = "rules_element_title_u">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+
     </style>
 
     <style name = "main_button">
