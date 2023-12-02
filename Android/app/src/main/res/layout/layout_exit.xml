@@ -9,21 +9,22 @@
     android:layout_gravity="center">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
 
-    <TextView
+        <TextView
             android:id="@+id/tx_exit"
-            android:layout_width="290dp"
-            android:layout_height="52dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal|center_vertical"
             android:lineSpacingExtra="-5sp"
             android:text="@string/dialog_exit"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:fontFamily="@font/poppins_light"
+            android:textAppearance="@style/dialog_content"
+            app:fontFamily="@font/poppins_medium"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -53,8 +54,7 @@
                 android:minHeight="0dp"
                 android:text="@string/dialog_exit_button1"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textAppearance="@style/dialog_button_1"
                 app:fontFamily="@font/poppins_semibold" />
 
             <TextView
@@ -69,8 +69,7 @@
                 android:minHeight="0dp"
                 android:text="@string/dialog_exit_button2"
                 android:textAllCaps="false"
-                android:textColor="@color/btn_normal_light_font"
-                android:textSize="14sp"
+                android:textAppearance="@style/dialog_button_2"
                 app:fontFamily="@font/poppins_semibold" />
 
         </LinearLayout>
