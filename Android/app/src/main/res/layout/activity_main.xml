@@ -63,20 +63,6 @@
         app:layout_constraintTop_toBottomOf="@+id/img_logo">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_mode_0"
-            android:layout_width="212dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginTop="80dp"
-            android:background="@drawable/btn_home"
-            android:text="Multi mode"
-            android:textAllCaps="false"
-            android:textColor="@drawable/btn_home"
-            android:textSize="30sp"
-            android:visibility="gone"
-            app:fontFamily="@font/poppins_semibold" />
-
-        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_mode_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,8 +72,7 @@
             android:background="@drawable/btn_home"
             android:text="@string/beginner_mode"
             android:textAllCaps="false"
-            android:textColor="@drawable/btn_home"
-            android:textSize="30sp"
+            android:textAppearance="@style/main_button"
             app:fontFamily="@font/poppins_semibold" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -100,38 +85,12 @@
             android:background="@drawable/btn_home"
             android:text="@string/expert_mode"
             android:textAllCaps="false"
-            android:textColor="@drawable/btn_home"
-            android:textSize="30sp"
+            android:textAppearance="@style/main_button"
             app:fontFamily="@font/poppins_semibold" />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_mode_3"
-            android:layout_width="163dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/btn_home"
-            android:text="My Rank"
-            android:textAllCaps="false"
-            android:textColor="@drawable/btn_home"
-            android:textSize="30sp"
-            android:visibility="gone"
-            app:fontFamily="@font/poppins_semibold" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_mode_4"
-            android:layout_width="246dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/btn_home"
-            android:text="Encyclopedia"
-            android:textAllCaps="false"
-            android:textColor="@drawable/btn_home"
-            android:textSize="30sp"
-            android:visibility="gone"
-            app:fontFamily="@font/poppins_semibold" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_mode_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -142,19 +101,6 @@
             android:textAllCaps="false"
             android:textColor="@drawable/btn_home"
             android:textSize="30sp"
-            app:fontFamily="@font/poppins_semibold" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_mode_6"
-            android:layout_width="151dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/btn_home"
-            android:text="Logout"
-            android:textAllCaps="false"
-            android:textColor="@drawable/btn_home"
-            android:textSize="30sp"
-            android:visibility="gone"
             app:fontFamily="@font/poppins_semibold" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

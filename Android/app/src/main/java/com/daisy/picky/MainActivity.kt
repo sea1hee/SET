@@ -71,24 +71,29 @@ class MainActivity : BaseActivity(), Handler.Callback  {
             }
         mCompositeDisposable.add(disposable)
 
-
+/*
         binding.btnMode0.setOnClickListener{
             Log.d(logTag, "select Multi mode btn")
             gameMode = 0
             readyGame()
             //startGame()
         }
+ */
         binding.btnMode1.setOnClickListener{
-            Log.d(logTag, "select Beginner mode btn")
+            Log.d(logTag, "select Normal mode btn")
             gameMode = 1
             startGame()
         }
         binding.btnMode2.setOnClickListener {
-            Log.d(logTag, "select Expert mode btn")
+            Log.d(logTag, "select 1-Minute mode btn")
             gameMode = 2
             readyGame()
             //startGame()
         }
+        binding.btnMode3.setOnClickListener {
+            startTutorial()
+        }
+        /*
         binding.btnMode3.setOnClickListener {
             Log.d(logTag, "select My Rank mode btn")
             gameMode = 3
@@ -142,6 +147,7 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding.btnMode6.visibility = View.GONE
 
         delayedSnowing.sendEmptyMessageDelayed(SNOWING_MESSAGE_ID, 100)
+        */
     }
 
     private fun startTutorial() {

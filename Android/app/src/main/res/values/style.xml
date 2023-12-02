@@ -21,8 +21,8 @@
     </style>
 
     <style name = "main_button">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/rules_text_color</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@drawable/btn_home</item>
     </style>
 
     <style name = "game_set_title">
@@ -35,5 +35,6 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/game_text_color_2</item>
     </style>
+
 
 </resources>
