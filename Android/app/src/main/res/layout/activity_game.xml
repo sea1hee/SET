@@ -46,7 +46,7 @@
             android:id="@+id/txt_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="right"
             android:height="60dp"
             android:includeFontPadding="false"
             android:text="@string/set"
@@ -61,6 +61,30 @@
             android:text="@string/set_available"
             android:textAppearance="@style/game_set_subtitle"
             app:fontFamily="@font/poppins_regular" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/txt_seconds_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="60 "
+            android:textAppearance="@style/game_seconds_1"
+            app:fontFamily="@font/poppins_regular" />
+
+        <TextView
+            android:id="@+id/txt_seconds_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/seconds"
+            android:layout_marginLeft="3dp"
+            android:textAppearance="@style/game_seconds_2"
+            app:fontFamily="@font/poppins_regular" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

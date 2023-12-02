@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.daisy.picky.R
 
-class FinishDialog(val point:Int, context: Context,
+class FinishDialog(val found:Int, val gameMode:Int, context: Context,
                    Interface: CustomDialogInterface
 ) : Dialog(context){
 
@@ -33,7 +33,21 @@ class FinishDialog(val point:Int, context: Context,
         exitText = findViewById<TextView>(R.id.tx_exit)
 
         stayButton.text = context.resources.getString(R.string.dialog_finish_button2)
-        exitText.text = context.resources.getString(R.string.dialog_finish)
+        if (gameMode == 1) {
+            exitText.text = context.resources.getString(R.string.dialog_finish)
+        } else {
+            if (found == 0) {
+                exitText.text =
+                    context.resources.getString(R.string.dialog_finish_minute_mode_1) +" "+ found.toString() +" "+ context.resources.getString(
+                        R.string.dialog_finish_minute_mode_2
+                    )
+            } else {
+                exitText.text =
+                    context.resources.getString(R.string.dialog_finish_minute_mode_1) +" "+ found.toString() +" "+ context.resources.getString(
+                        R.string.dialog_finish_minute_mode_2_1
+                    )
+            }
+        }
 
         exitButton.setOnClickListener {
             customDialogInterface.onLeftButtonClicked()

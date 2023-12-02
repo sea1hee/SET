@@ -31,11 +31,15 @@
     <string name="dialog_exit">정말 게임을 종료하시겠습니까?</string>
     <string name="dialog_exit_button1">종료</string>
     <string name="dialog_exit_button2">닫기</string>
-    <string name="dialog_finish">완료\\n모든 세트를 찾았습니다!</string>
+    <string name="dialog_finish">완료\n모든 세트를 찾았습니다!</string>
+    <string name="dialog_finish_minute_mode_1">완료\n </string>
+    <string name="dialog_finish_minute_mode_2"> 세트를 찾았습니다.</string>
+    <string name="dialog_finish_minute_mode_2_1"> 세트를 찾았습니다.</string>
     <string name="dialog_finish_button1">종료</string>
     <string name="dialog_finish_button2">다시</string>
     <string name="dialog_ready">곧 만나요</string>
     <string name="dialog_ready_button3">닫기</string>
     <string name="tutorial_description">하나의 카드는 4가지 요소로 구성되어 있습니다.</string>
     <string name="found_not_supported">You\ncan\ndo\nbetter!</string>
+    <string name="seconds">seconds left</string>
 </resources>

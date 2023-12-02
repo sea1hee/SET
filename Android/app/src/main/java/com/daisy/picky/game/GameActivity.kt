@@ -3,6 +3,7 @@ package com.daisy.picky.game
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -16,6 +17,8 @@ import com.daisy.picky.databinding.ActivityGameBinding
 import com.daisy.picky.dialog.CustomDialogInterface
 import com.daisy.picky.dialog.ExitDialog
 import com.daisy.picky.dialog.FinishDialog
+import com.daisy.picky.game.GameViewModel.Companion.MIllIS_IN_FUTURE
+import com.daisy.picky.game.GameViewModel.Companion.TICK_INTERVAL
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
@@ -33,6 +36,7 @@ class GameActivity : BaseActivity() {
     private var cntAvailable = 0
     private var point = 0
 
+    private lateinit var timer: CountDownTimer
     lateinit var loadingFragment: LoadingFragment
 
     var subject: PublishSubject<Int> = PublishSubject.create()
@@ -64,6 +68,16 @@ class GameActivity : BaseActivity() {
         gameViewModel.progress.observe(this){
             if(it == 100) {
                 setContainerLoading(View.GONE)
+
+                if (gameMode == NORMAL_MODE){
+                    binding.txtSeconds1.visibility= View.GONE
+                    binding.txtSeconds2.visibility= View.GONE
+
+                }else if(gameMode == ONE_MINUTE_MODE){
+                    binding.txtExist.visibility = View.GONE
+                    setUpCountDownTimer()
+                    timer.start()
+                }
             }
         }
 
@@ -112,13 +126,14 @@ class GameActivity : BaseActivity() {
             Log.d("loading", "GameActivity: observe endGameFlag")
             Log.d("theif", "call observer start")
 
-            val prepareDialog = FinishDialog(gameViewModel.getPoint(), this, object: CustomDialogInterface {
+            val prepareDialog = FinishDialog(gameViewModel.cntAnswer.value!!, gameMode, this, object: CustomDialogInterface {
                 override fun onLeftButtonClicked(){
                     finish()
                 }
                 override fun onRightButtonClicked() {
                     btnVisivility(View.VISIBLE)
                     gameViewModel.setGame(gameMode)
+                    timer.start()
                 }
             })
             prepareDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
@@ -126,6 +141,17 @@ class GameActivity : BaseActivity() {
 
             Log.d("theif", "call observer")
             prepareDialog.show()
+        }
+
+        gameViewModel.countDownTimerDuration.observe(this){
+            if(it >= 10000L){
+            binding.txtSeconds1.text = it.toString().subSequence(0,2)
+            }else if(it >= 1000L){
+                binding.txtSeconds1.text = it.toString().subSequence(0,1)
+            }else if (it >= 100L){
+                binding.txtSeconds1.text = "0"
+            }
+
         }
 
         binding.btnBack.setOnClickListener {
@@ -160,6 +186,7 @@ class GameActivity : BaseActivity() {
                 Toast.makeText(this, resources.getString(R.string.redirect), Toast.LENGTH_LONG).show()
             }
         }
+
     }
 
     public fun btnVisivility(value : Int) {
@@ -200,4 +227,14 @@ class GameActivity : BaseActivity() {
         binding.containerLoading.visibility = visibility
     }
 
+    private fun setUpCountDownTimer() {
+        timer = object : CountDownTimer(MIllIS_IN_FUTURE, TICK_INTERVAL) {
+            override fun onTick(millisUntilFinished: Long) {
+                gameViewModel.countDownTimerDuration.value = millisUntilFinished
+            }
+            override fun onFinish() {
+                gameViewModel.setEndGameFlag(true)
+            }
+        }
+    }
 }

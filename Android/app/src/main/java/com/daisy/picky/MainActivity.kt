@@ -81,14 +81,13 @@ class MainActivity : BaseActivity(), Handler.Callback  {
  */
         binding.btnMode1.setOnClickListener{
             Log.d(logTag, "select Normal mode btn")
-            gameMode = 1
+            gameMode = NORMAL_MODE
             startGame()
         }
         binding.btnMode2.setOnClickListener {
             Log.d(logTag, "select 1-Minute mode btn")
-            gameMode = 2
-            readyGame()
-            //startGame()
+            gameMode = ONE_MINUTE_MODE
+            startGame()
         }
         binding.btnMode3.setOnClickListener {
             startTutorial()

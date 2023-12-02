@@ -23,9 +23,8 @@ open class BaseActivity: AppCompatActivity() {
         var preLoginMethod: Int = EVER_LOGIN
 
         var gameMode = 0
-        private val GAME_MODE_SINGLE = 1
-        private val GAME_MODE_MULTI = 2
-        private val GAME_MODE_TUTORIAL = 3
+        val NORMAL_MODE = 1
+        val ONE_MINUTE_MODE = 2
 
         private var dimen = 3
 

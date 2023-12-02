@@ -57,6 +57,15 @@ class GameViewModel() : ViewModel() {
     private var _progress = MutableLiveData<Int>()
     val progress: LiveData<Int> get() = _progress
 
+    // timer
+
+    val countDownTimerDuration: MutableLiveData<Long> = MutableLiveData(MIllIS_IN_FUTURE)
+
+    companion object {
+        const val MIllIS_IN_FUTURE = 60000L
+        const val TICK_INTERVAL = 1000L
+    }
+
     init{
         //setProgress(0)
     }
