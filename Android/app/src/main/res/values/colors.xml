@@ -45,4 +45,7 @@
     <color name = "rules_indicator_notselected">#66D9D9D9</color>
     <color name = "rules_indicator_selected">#D9D9D9</color>
 
+    <color name="game_text_color_1">#F0F0F0</color>
+    <color name="game_text_color_2">#A5A5A5</color>
+
 </resources>

@@ -21,6 +21,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
 
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_back"
+        app:srcCompat="@drawable/picky" />
+
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,8 +50,7 @@
             android:height="60dp"
             android:includeFontPadding="false"
             android:text="@string/set"
-            android:textColor="@color/white"
-            android:textSize="45sp"
+            android:textAppearance="@style/game_set_title"
             app:fontFamily="@font/poppins_semibold" />
 
 
@@ -50,9 +59,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/set_available"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:fontFamily="@font/poppins_light" />
+            android:textAppearance="@style/game_set_subtitle"
+            app:fontFamily="@font/poppins_regular" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -95,7 +103,7 @@
 
     <ImageButton
         android:id="@+id/btn_sets"
-        android:layout_width="103dp"
+        android:layout_width="85dp"
         android:layout_height="35dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="15dp"

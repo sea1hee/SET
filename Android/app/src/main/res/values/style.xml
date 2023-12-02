@@ -20,4 +20,20 @@
         <item name="android:textColor">@color/rules_text_color</item>
     </style>
 
+    <style name = "main_button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/rules_text_color</item>
+    </style>
+
+    <style name = "game_set_title">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@color/game_text_color_1</item>
+    </style>
+
+
+    <style name = "game_set_subtitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/game_text_color_2</item>
+    </style>
+
 </resources>
