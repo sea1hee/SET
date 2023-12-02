@@ -1,10 +1,56 @@
 <resources>
     <string name="app_name">PICKY</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Main -->
+    <string name="beginner_mode">Normal Mode</string>
+    <string name="expert_mode">1-Minute mode</string>
+    <string name="tutorial">Rules</string>
+    <string name="coming_soon">Coming soon!</string>
+
+    <!-- Game -->
+    <string name="set">Set</string>
+    <string name="sets">Sets</string>
+    <string name="set_available">set available</string>
+    <string name="sets_available">sets available</string>
+
+    <string name="check_your_sets">Check\nyour sets</string>
+
+    <string name="redirect">Shuffling!</string>
+
+    <!-- loading -->
+    <string name="loading">Loading ...</string>
+
+    <!-- Tutorial  -->
     <string name="color_u"><u>Color</u></string>
-    <string name="pattern_u"><u>Pattern</u></string>
+    <string name="pattern_u" translatable="false"><u>Pattern</u></string>
     <string name="number_u"><u>Number</u></string>
-    <string name="symbol_u"><u>Symbol</u></string>
+    <string name="symbol_u"><u>Shape</u></string>
+    <string name="_2023_mousehouse">ⓒ 2023 MouseHouse.</string>
+
+    <string name="tutorial_description">A Card consists of 4 elements.</string>
+
+    <string name="color_detail">The colors on the three cards must all be the same or all be different.</string>
+    <string name="pattern_detail">The patterns on the three cards must all be the same or all be different.</string>
+    <string name="number_detail">The numbers on the three cards must all be the same or all be different.</string>
+    <string name="symbol_detail">The shapes on the three cards must all be the same or all be different.</string>
+
+    <string name="btn_next">NEXT</string>
+    <string name="btn_prev">PREV</string>
+    <string name="btn_done">DONE</string>
+
+    <!-- dialog -->
+    <string name="dialog_exit">Do you want to exit  the Set game?</string>
+    <string name="dialog_exit_button1">Exit</string>
+    <string name="dialog_exit_button2">Stay</string>
+    <string name="dialog_exit_button3"></string>
+
+    <string name="dialog_finish">Finish You found All Set !!</string>
+    <string name="dialog_finish_button1">Exit</string>
+    <string name="dialog_finish_button2">Again</string>
+    <string name="dialog_finish_button3"></string>
+
+    <string name="dialog_ready">Comming Soon!</string>
+    <string name="dialog_ready_button1"></string>
+    <string name="dialog_ready_button2"></string>
+    <string name="dialog_ready_button3">Close</string>
 </resources>

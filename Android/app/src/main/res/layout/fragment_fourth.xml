@@ -15,9 +15,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
         android:text="@string/number_u"
-        android:textColor="@color/tutorial_text"
-        android:textSize="20dp"
-        app:fontFamily="@font/poppins_semibold"
+        android:textAppearance="@style/rules_element_title"
+        app:fontFamily="@font/poppins_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,10 +27,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
-        android:text="The numbers on the three cards must all be the same or all be different."
-        android:textColor="@color/tutorial_text"
-        android:textSize="18dp"
-        app:fontFamily="@font/poppins_light"
+        android:text="@string/number_detail"
+        android:textAppearance="@style/rules_element_description"
+        app:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tx_number" />
@@ -52,8 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="①"
-            android:textColor="@color/tutorial_text"
-            android:textSize="20dp"
+            android:textAppearance="@style/rules_element_example"
             app:fontFamily="@font/poppins_semibold"/>
 
 
@@ -162,8 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="②"
-            android:textColor="@color/tutorial_text"
-            android:textSize="20dp"
+            android:textAppearance="@style/rules_element_example"
             app:fontFamily="@font/poppins_semibold" />
 
         <com.google.android.material.card.MaterialCardView

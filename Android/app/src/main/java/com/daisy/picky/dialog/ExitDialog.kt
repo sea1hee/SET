@@ -35,12 +35,12 @@ class ExitDialog(context: Context,
         stayButton = findViewById(R.id.btn_no)
 
         exitButton.setOnClickListener {
-            customDialogInterface.onExitButtonClicked()
+            customDialogInterface.onLeftButtonClicked()
             dismiss()
         }
 
         stayButton.setOnClickListener {
-            customDialogInterface.onStayButtonClicked()
+            customDialogInterface.onRightButtonClicked()
             dismiss()
         }
 

@@ -78,11 +78,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_mode_1"
-            android:layout_width="274dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:background="@drawable/btn_home"
-            android:text="Beginner mode"
+            android:text="@string/beginner_mode"
             android:textAllCaps="false"
             android:textColor="@drawable/btn_home"
             android:textSize="30sp"
@@ -90,11 +92,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_mode_2"
-            android:layout_width="232dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:background="@drawable/btn_home"
-            android:text="Expert mode"
+            android:text="@string/expert_mode"
             android:textAllCaps="false"
             android:textColor="@drawable/btn_home"
             android:textSize="30sp"
@@ -128,11 +132,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_mode_5"
-            android:layout_width="158dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/btn_home"
-            android:text="Tutorial"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/tutorial"
             android:textAllCaps="false"
             android:textColor="@drawable/btn_home"
             android:textSize="30sp"
@@ -157,7 +163,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ⓒ 2023 MouseHouse."
+        android:text="@string/_2023_mousehouse"
         android:fontFamily="@font/poppins_light"
         android:textColor="@color/white"
         android:textSize="12sp"

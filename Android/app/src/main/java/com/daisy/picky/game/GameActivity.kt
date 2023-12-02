@@ -15,15 +15,9 @@ import com.daisy.picky.R
 import com.daisy.picky.databinding.ActivityGameBinding
 import com.daisy.picky.dialog.CustomDialogInterface
 import com.daisy.picky.dialog.ExitDialog
-import com.daisy.picky.dialog.PrepareDialog
+import com.daisy.picky.dialog.FinishDialog
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import java.lang.Thread.sleep
-import java.time.LocalDate
 import java.util.concurrent.TimeUnit
 
 class GameActivity : BaseActivity() {
@@ -83,7 +77,11 @@ class GameActivity : BaseActivity() {
 
             Log.d("loading", "GameActivity: observe cntAnswer")
             cntAnswer = it
-            binding.txtCount.text = it.toString() + " Set"
+            if (it <= 1) {
+                binding.txtCount.text = it.toString() +" "+ resources.getString(R.string.set)
+            } else {
+                binding.txtCount.text = it.toString() +" "+ resources.getString(R.string.sets)
+            }
             if(cntAnswer == 23){
                 binding.btnReload.visibility=View.INVISIBLE
             }
@@ -93,7 +91,11 @@ class GameActivity : BaseActivity() {
 
             Log.d("loading", "GameActivity: observe cntAvailabe")
             cntAvailable = it
-            binding.txtExist.text = it.toString() + " Sets available"
+            if (it <= 1) {
+                binding.txtExist.text = it.toString() +" "+ resources.getString(R.string.set_available)
+            } else {
+                binding.txtExist.text = it.toString() +" "+ resources.getString(R.string.sets_available)
+            }
         }
 
 
@@ -114,17 +116,14 @@ class GameActivity : BaseActivity() {
             Log.d("loading", "GameActivity: observe endGameFlag")
             Log.d("theif", "call observer start")
 
-            val prepareDialog = PrepareDialog(gameViewModel.getPoint(), this, object: CustomDialogInterface {
-                override fun onExitButtonClicked(){
+            val prepareDialog = FinishDialog(gameViewModel.getPoint(), this, object: CustomDialogInterface {
+                override fun onLeftButtonClicked(){
                     finish()
                 }
-                //again
-                override fun onStayButtonClicked() {
-                    // TODO: again
+                override fun onRightButtonClicked() {
                     btnVisivility(View.VISIBLE)
                     gameViewModel.setGame(gameMode)
                 }
-
             })
             prepareDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             prepareDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -135,11 +134,11 @@ class GameActivity : BaseActivity() {
 
         binding.btnBack.setOnClickListener {
             val exitDialog = ExitDialog(this, object: CustomDialogInterface{
-                override fun onExitButtonClicked() {
+                override fun onLeftButtonClicked() {
                     finish()
                 }
 
-                override fun onStayButtonClicked() {
+                override fun onRightButtonClicked() {
                 }
             })
             exitDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
@@ -162,7 +161,7 @@ class GameActivity : BaseActivity() {
 
         binding.btnReload.setOnClickListener {
             if (gameViewModel.addNewCard()){
-                Toast.makeText(this, "화면을 새로고침합니다.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, resources.getString(R.string.redirect), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -184,11 +183,11 @@ class GameActivity : BaseActivity() {
         }
         else {
             val exitDialog = ExitDialog(this, object: CustomDialogInterface{
-                override fun onExitButtonClicked() {
+                override fun onLeftButtonClicked() {
                     finish()
                 }
 
-                override fun onStayButtonClicked() {
+                override fun onRightButtonClicked() {
                 }
             })
             exitDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));

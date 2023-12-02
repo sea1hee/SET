@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.daisy.picky.R
 import com.daisy.picky.game.GameViewModel
 import com.daisy.picky.game.OnCardClick
 import com.daisy.picky.databinding.FragmentBoardBinding
@@ -50,7 +51,7 @@ class BoardFragment : Fragment(), OnCardClick {
             // set 없을 경우, Toast 팝업 후 새로고침
             if (gameViewModel.checkAllSet() == 0) {
                 if (gameViewModel.addNewCard() == true) {
-                    Toast.makeText(context, "세트가 없어 새로고침합니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, resources.getString(R.string.redirect), Toast.LENGTH_LONG).show()
                 }
             }
         }

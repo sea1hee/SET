@@ -39,4 +39,10 @@
     <color name="tutorial_text">#FFF0F0F0</color>
 
     <color name="progress">#FFFF3696</color>
+
+    <color name = "rules_text_color">#FFF0F0F0</color>
+
+    <color name = "rules_indicator_notselected">#66D9D9D9</color>
+    <color name = "rules_indicator_selected">#D9D9D9</color>
+
 </resources>

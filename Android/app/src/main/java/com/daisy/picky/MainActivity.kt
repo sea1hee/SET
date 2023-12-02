@@ -13,6 +13,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.daisy.picky.databinding.ActivityMainBinding
 import kotlin.random.Random
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
@@ -30,6 +31,7 @@ import com.kakao.sdk.user.UserApiClient
 import com.navercorp.nid.NaverIdLoginSDK
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 private const val SNOWING_MESSAGE_ID = 10
@@ -41,6 +43,7 @@ class MainActivity : BaseActivity(), Handler.Callback  {
     private var isSnowing: Boolean = true
     private val delayedSnowing: Handler = Handler(this)
 
+    private lateinit var configuration: Configuration
     private lateinit var splashScreen: SplashScreen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,26 +153,6 @@ class MainActivity : BaseActivity(), Handler.Callback  {
     private fun startGame(){
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
-    }
-
-    private fun preventGame(){
-        var modeName:String = ""
-        if(gameMode == 0){
-            modeName = "Multi mode"
-        }else if(gameMode == 1){
-            modeName = "Beginner mode"
-        }else if(gameMode == 2){
-            modeName = "Expert mode"
-        }else if(gameMode == 3){
-            modeName = "My Rank"
-        }else if(gameMode == 4){
-            modeName = "Encyclopedia"
-        }else if(gameMode == 5){
-            modeName = "Tutorial"
-        }else if(gameMode == 6){
-            modeName = "Logout"
-        }
-        Toast.makeText(this, modeName+"는 준비중입니다.", Toast.LENGTH_SHORT).show()
     }
 
     private fun snowing(snowObj : AppCompatImageView) {

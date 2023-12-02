@@ -8,6 +8,7 @@
     android:background="@color/game_background"
     tools:context=".tutorial.FirstFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,10 +23,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="@string/color_u"
             android:textColor="#FFF0F0F0"
-            android:textSize="25sp"
+            android:textSize="18sp"
             app:fontFamily="@font/poppins_semibold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +66,7 @@
             android:layout_marginTop="80dp"
             android:text="@string/pattern_u"
             android:textColor="#FFF0F0F0"
-            android:textSize="25sp"
+            android:textSize="18sp"
             app:fontFamily="@font/poppins_semibold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_color" />
@@ -105,7 +106,7 @@
             android:layout_marginTop="80dp"
             android:text="@string/number_u"
             android:textColor="#FFF0F0F0"
-            android:textSize="25sp"
+            android:textSize="18sp"
             app:fontFamily="@font/poppins_semibold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_pattern" />
@@ -145,7 +146,7 @@
             android:layout_marginTop="80dp"
             android:text="@string/symbol_u"
             android:textColor="#FFF0F0F0"
-            android:textSize="25sp"
+            android:textSize="18sp"
             app:fontFamily="@font/poppins_semibold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_number" />

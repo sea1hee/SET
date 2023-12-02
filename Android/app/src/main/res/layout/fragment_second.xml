@@ -8,8 +8,6 @@
     android:background="@color/game_background"
     tools:context=".tutorial.SecondFragment">
 
-
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tx_color"
         android:layout_width="wrap_content"
@@ -17,9 +15,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
         android:text="@string/color_u"
-        android:textColor="@color/tutorial_text"
-        android:textSize="20dp"
-        app:fontFamily="@font/poppins_semibold"
+        android:textAppearance="@style/rules_element_title"
+        app:fontFamily="@font/poppins_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,10 +27,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
-        android:text="The color on the three cards must all be the same or all be different."
-        android:textColor="@color/tutorial_text"
-        android:textSize="18dp"
-        app:fontFamily="@font/poppins_light"
+        android:text="@string/color_detail"
+        android:textAppearance="@style/rules_element_description"
+        app:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tx_color" />
@@ -54,16 +50,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="①"
-            android:textColor="@color/tutorial_text"
-            android:textSize="20dp"
-            app:fontFamily="@font/poppins_semibold" />
+            android:textAppearance="@style/rules_element_example"
+            app:fontFamily="@font/poppins_bold"/>
 
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card1_1"
             android:layout_width="74dp"
             android:layout_height="139dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="40dp"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@color/card_background_normal"
             app:cardCornerRadius="10dp"
@@ -200,15 +195,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="②"
-            android:textColor="@color/tutorial_text"
-            android:textSize="20dp"
+            android:textAppearance="@style/rules_element_example"
             app:fontFamily="@font/poppins_semibold" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card2_1"
             android:layout_width="74dp"
             android:layout_height="139dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="40dp"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@color/card_background_normal"
             app:cardCornerRadius="10dp"

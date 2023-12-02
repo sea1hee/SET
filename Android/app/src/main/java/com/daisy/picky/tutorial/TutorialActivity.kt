@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.daisy.picky.BaseActivity
+import com.daisy.picky.R
 import com.daisy.picky.databinding.ActivityTutorialBinding
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
@@ -40,7 +41,8 @@ class TutorialActivity : BaseActivity() {
         vpAdapter.addFragment(FourthFragment())
         vpAdapter.addFragment(FifthFragment())
         binding.vpTutorial.adapter = vpAdapter
-        binding.vpTutorial.setUserInputEnabled(false)
+        binding.indicator.setViewPager2(binding.vpTutorial)
+        //binding.vpTutorial.setUserInputEnabled(false)
 
         binding.vpTutorial.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -51,9 +53,7 @@ class TutorialActivity : BaseActivity() {
 
 
         binding.vpTutorial.setCurrentItem(0, true)
-        binding.btnPrev.visibility = View.INVISIBLE
-
-
+        /*
         val subject: PublishSubject<Int> = PublishSubject.create()
         val mCompositeDisposable = CompositeDisposable()
 
@@ -63,7 +63,7 @@ class TutorialActivity : BaseActivity() {
                 binding.btnPrev.callOnClick()
             }
         mCompositeDisposable.add(disposable)
-
+*/
         binding.btnSkip.setOnClickListener {
             finish()
         }
@@ -71,6 +71,7 @@ class TutorialActivity : BaseActivity() {
             finish()
         }
 
+        /*
         binding.btnNext.setOnClickListener {
 
             var curPage = binding.vpTutorial.currentItem
@@ -80,7 +81,7 @@ class TutorialActivity : BaseActivity() {
                 curPage += 1
 
                 if (curPage == 4){
-                    binding.btnNext.text ="DONE"
+                    binding.btnNext.text = resources.getString(R.string.btn_done)
                     binding.btnNext.visibility = View.VISIBLE
                     binding.btnPrev.visibility = View.VISIBLE
                     binding.vpTutorial.setCurrentItem(curPage, true)
@@ -105,7 +106,7 @@ class TutorialActivity : BaseActivity() {
 
                 binding.vpTutorial.setCurrentItem(curPage, true)
             } else if (curPage > 0) {
-                binding.btnNext.text ="NEXT"
+                binding.btnNext.text =resources.getString(R.string.btn_next)
                 binding.btnNext.visibility = View.VISIBLE
                 binding.btnPrev.visibility = View.VISIBLE
 
@@ -114,6 +115,7 @@ class TutorialActivity : BaseActivity() {
 
 
         }
+         */
 
     }
 

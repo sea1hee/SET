@@ -66,22 +66,12 @@ class GameViewModel() : ViewModel() {
     }
 
     fun setGame(gm :Int){
-        //setProgress(30)
-        //sleep(1000)
 
-        Log.d("viewModel", "setGame")
-
-        Log.d("loading", "GameActivity: setGame, progress 30")
         CoroutineScope(Main).launch() {
-            //setProgress(50)
             boardCardList = mutableListOf<Card>()
             val resultInitCard = async(IO) {initCardPack(gm)}
 
             if (resultInitCard.await() != null) {
-
-                //setProgress(80)
-                Log.d("loading", boardCardList.toString())
-                Log.d("loading", "GameActivity: setProgress 75")
 
                 _boardCard.value = boardCardList
                 _boardCard.postValue(_boardCard.value)
@@ -97,9 +87,6 @@ class GameViewModel() : ViewModel() {
 
                 _point.value = 0
                 _point.postValue(_point.value)
-
-                //setProgress(100)
-
             }
         }
     }

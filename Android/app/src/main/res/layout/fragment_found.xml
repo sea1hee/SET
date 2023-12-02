@@ -15,7 +15,7 @@
         android:layout_marginTop="110dp"
         android:layout_marginEnd="30dp"
         android:gravity="right"
-        android:text="Check\nyour sets"
+        android:text="@string/check_your_sets"
         android:textColor="@color/white"
         android:textSize="45sp"
         app:fontFamily="@font/poppins_semibold"

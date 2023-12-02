@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PICKY</string>
+    <string name="beginner_mode">Normal Mode</string>
+    <string name="expert_mode">1-Minute mode</string>
+    <string name="tutorial">Rules</string>
+    <string name="coming_soon">곧 만나요</string>
+    <string name="set">Set</string>
+    <string name="sets">Sets</string>
+    <string name="set_available">set available</string>
+    <string name="sets_available">sets available</string>
+    <string name="check_your_sets">Check\\nyour sets</string>
+    <string name="redirect">Shuffling!</string>
+    <string name="loading">카드 준비 중</string>
+    <string name="color_u"><u>Color</u></string>
+    <string name="pattern_u"><u>Pattern</u></string>
+    <string name="number_u"><u>Number</u></string>
+    <string name="symbol_u"><u>Shape</u></string>
+    <string name="_2023_mousehouse">ⓒ 2023 MouseHouse</string>
+    <string name="color_detail">세 개의 카드의 그림의 색은 모두 같거나 모두 달라야 합니다.</string>
+    <string name="pattern_detail">세 개의 카드의 그림의 음영은 모두 같거나 모두 달라야 합니다.</string>
+    <string name="number_detail">세 개의 카드의 그림의 갯수는 모두 같거나 모두 달라야 합니다.</string>
+    <string name="symbol_detail">세 개의 카드의 그림의 모양은 모두 같거나 모두 달라야 합니다.</string>
+    <string name="btn_next">다음</string>
+    <string name="btn_prev">이전</string>
+    <string name="btn_done">완료</string>
+    <string name="dialog_exit">정말 게임을 종료하시겠습니까?</string>
+    <string name="dialog_exit_button1">종료</string>
+    <string name="dialog_exit_button2">닫기</string>
+    <string name="dialog_finish">완료\\n모든 세트를 찾았습니다!</string>
+    <string name="dialog_finish_button1">종료</string>
+    <string name="dialog_finish_button2">다시</string>
+    <string name="dialog_ready">준비중 입니다</string>
+    <string name="dialog_ready_button3">닫기</string>
+    <string name="tutorial_description">하나의 카드는 4가지 요소로 구성되어 있습니다.</string>
+</resources>
