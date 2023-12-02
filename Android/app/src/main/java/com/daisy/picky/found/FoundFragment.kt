@@ -67,6 +67,7 @@ class FoundFragment : Fragment(), OnCardClick {
             }
         }
 
+
         binding.btnExit.setOnClickListener{
             (activity as GameActivity).setContainerFound(View.GONE)
             (activity as GameActivity).btnVisivility(View.VISIBLE)

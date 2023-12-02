@@ -7,6 +7,30 @@
     android:background="@color/game_background"
     tools:context=".found.FoundFragment">
 
+
+    <ImageButton
+        android:id="@+id/btn_exit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_exit"
+        app:layout_constraintStart_toEndOf="@+id/btn_exit"
+        app:layout_constraintTop_toTopOf="@+id/btn_exit"
+        app:srcCompat="@drawable/picky" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_found_1"
         android:layout_width="wrap_content"
@@ -53,19 +77,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlHardcoded" />
-
-    <ImageButton
-        android:id="@+id/btn_exit"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:background="@android:color/transparent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_foundsets"
