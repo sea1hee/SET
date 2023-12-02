@@ -8,7 +8,7 @@
     tools:context=".tutorial.TutorialActivity">
 
     <ImageButton
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_exit"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="11dp"
@@ -19,7 +19,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/exit" />
 
 
     <ImageButton
@@ -30,7 +30,7 @@
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_exit"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/skip" />
 
@@ -43,7 +43,7 @@
         android:text="@string/tutorial"
         android:textAppearance="@style/rules_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_exit" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vp_tutorial"

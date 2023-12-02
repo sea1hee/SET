@@ -23,11 +23,11 @@ class TutorialActivity : BaseActivity() {
         setContentView(binding.root)
 
         if (isTutorial){
-            binding.btnBack.visibility = View.INVISIBLE
+            binding.btnExit.visibility = View.INVISIBLE
             binding.btnSkip.visibility = View.VISIBLE
         } else {
             binding.btnSkip.visibility = View.INVISIBLE
-            binding.btnBack.visibility = View.VISIBLE
+            binding.btnExit.visibility = View.VISIBLE
         }
 
         isTutorial = false
@@ -67,7 +67,7 @@ class TutorialActivity : BaseActivity() {
         binding.btnSkip.setOnClickListener {
             finish()
         }
-        binding.btnBack.setOnClickListener {
+        binding.btnExit.setOnClickListener {
             finish()
         }
 
