@@ -9,7 +9,7 @@
     <string name="sets">Sets</string>
     <string name="set_available">set available</string>
     <string name="sets_available">sets available</string>
-    <string name="check_your_sets">Check\\nyour sets</string>
+    <string name="check_your_sets">Check\nyour sets</string>
     <string name="redirect">Shuffling!</string>
     <string name="loading">카드 준비 중</string>
     <string name="color_u"><u>Color</u></string>
@@ -37,4 +37,5 @@
     <string name="dialog_ready">곧 만나요</string>
     <string name="dialog_ready_button3">닫기</string>
     <string name="tutorial_description">하나의 카드는 4가지 요소로 구성되어 있습니다.</string>
+    <string name="found_not_supported">You\ncan\ndo\nbetter!</string>
 </resources>

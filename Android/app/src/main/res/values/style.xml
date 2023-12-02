@@ -28,7 +28,6 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/rules_text_color</item>
         <item name="fontFamily">@font/poppins_semibold</item>
-
     </style>
 
     <style name = "main_button">
@@ -65,6 +64,13 @@
     <style name = "dialog_button_2">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">#1C1C1C</item>
+    </style>
+
+    <style name = "found_not_supported">
+        <item name="android:textSize">90sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:textColor">#F0F0F0</item>
+        <item name="fontFamily">@font/poppins_thin</item>
     </style>
 
 </resources>

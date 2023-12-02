@@ -109,7 +109,7 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
 
         // 카드 선택 여부 확인 selected
         if (selected) {
-            holder.card.strokeWidth = 10
+            holder.card.strokeWidth = 2
             holder.card.strokeColor = ContextCompat.getColor(holder.card.context,
                 R.color.card_stroke_selected
             )

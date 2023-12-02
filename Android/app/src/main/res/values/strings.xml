@@ -53,4 +53,6 @@
     <string name="dialog_ready_button1"></string>
     <string name="dialog_ready_button2"></string>
     <string name="dialog_ready_button3">Close</string>
+
+    <string name="found_not_supported">You\ncan\ndo\nbetter!</string>
 </resources>

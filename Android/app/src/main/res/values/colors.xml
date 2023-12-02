@@ -16,7 +16,7 @@
     <color name="card_background_selected">#FFFC035D</color>
 
     <color name="card_stroke_normal">#FF58585D</color>
-    <color name="card_stroke_selected">#FFFC035D</color>
+    <color name="card_stroke_selected">#FFFFFFFF</color>
 
     <color name="card_color_1">#FFFF489B</color>
     <color name="card_color_2">#FF34AD6A</color>

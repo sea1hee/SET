@@ -60,7 +60,6 @@ class GameActivity : BaseActivity() {
         setContainerFound(View.GONE)
 
         gameViewModel.setGame(gameMode)
-        binding.btnSets.visibility = View.INVISIBLE
 
         gameViewModel.progress.observe(this){
             if(it == 100) {
@@ -71,9 +70,6 @@ class GameActivity : BaseActivity() {
         //Log.d("loading", gameViewModel.boardCard.value.toString())
 
         gameViewModel.cntAnswer.observe(this){
-            if(cntAnswer != 0){
-                binding.btnSets.visibility = View.VISIBLE
-            }
 
             Log.d("loading", "GameActivity: observe cntAnswer")
             cntAnswer = it

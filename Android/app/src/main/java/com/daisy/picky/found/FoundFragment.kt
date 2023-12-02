@@ -1,5 +1,6 @@
 package com.daisy.picky.found
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -45,9 +46,25 @@ class FoundFragment : Fragment(), OnCardClick {
         binding.rcFoundsets.layoutManager = GridLayoutManager(context, 1)
 
         gameViewModel.matchCard.observe(viewLifecycleOwner) {
-            adapter.foundCard = it!!
-            Log.d(logtag, adapter.foundCard.size.toString())
-            adapter.notifyDataSetChanged()
+
+            if(it.isEmpty()){
+                //empty
+                binding.imgFound1.visibility = View.VISIBLE
+                binding.imgFound2.visibility = View.VISIBLE
+                binding.imgFound3.visibility = View.VISIBLE
+                binding.txtNotSupported.visibility = View.VISIBLE
+            }
+            else {
+                // 1 or 2
+                binding.imgFound1.visibility = View.GONE
+                binding.imgFound2.visibility = View.GONE
+                binding.imgFound3.visibility = View.GONE
+                binding.txtNotSupported.visibility = View.GONE
+
+                adapter.foundCard = it!!
+                Log.d(logtag, adapter.foundCard.size.toString())
+                adapter.notifyDataSetChanged()
+            }
         }
 
         binding.btnExit.setOnClickListener{
