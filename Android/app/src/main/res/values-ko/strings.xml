@@ -42,4 +42,7 @@
     <string name="tutorial_description">하나의 카드는 4가지 요소로 구성되어 있습니다.</string>
     <string name="found_not_supported">You\ncan\ndo\nbetter!</string>
     <string name="seconds">seconds left</string>
+    <string name="found">Found</string>
+    <string name="game_mode_name_1">Normal</string>
+    <string name="game_mode_name_2">1-minute</string>
 </resources>

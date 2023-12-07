@@ -60,4 +60,8 @@
     <string name="dialog_finish_minute_mode_1">Finish\nYou found </string>
     <string name="dialog_finish_minute_mode_2"> Sets!</string>
     <string name="dialog_finish_minute_mode_2_1"> Set!</string>
+    <string name="found">Found</string>
+
+    <string name="game_mode_name_1">Normal</string>
+    <string name="game_mode_name_2">1-minute</string>
 </resources>
