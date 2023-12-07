@@ -35,74 +35,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prgr_loading" />
 
-    <ImageView
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/card_1"
         android:layout_width="127dp"
         android:layout_height="129dp"
-        android:layout_marginBottom="11dp"
-        android:adjustViewBounds="true"
+        android:layout_marginBottom="13dp"
+        android:rotation="45.0"
         android:src="@drawable/loading_2"
-        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/card_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/card_2"
         android:layout_width="127dp"
         android:layout_height="129dp"
-        android:layout_marginBottom="11dp"
-        android:adjustViewBounds="true"
+        android:layout_marginBottom="13dp"
         android:src="@drawable/loading_3"
-        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/card_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/card_3"
         android:layout_width="127dp"
         android:layout_height="129dp"
-        android:layout_marginBottom="33dp"
-        android:adjustViewBounds="true"
+        android:layout_marginBottom="20dp"
+        android:rotation="45.0"
         android:src="@drawable/loading_1"
-        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/prgr_loading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/card_4"
         android:layout_width="127dp"
         android:layout_height="129dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="13dp"
         android:adjustViewBounds="true"
         android:src="@drawable/loading_2"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tx_loading" />
 
-    <ImageView
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/card_5"
         android:layout_width="127dp"
         android:layout_height="129dp"
         android:layout_marginTop="11dp"
         android:adjustViewBounds="true"
+        android:rotation="45"
         android:src="@drawable/loading_1"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_4" />
 
-    <ImageView
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/card_6"
         android:layout_width="127dp"
         android:layout_height="129dp"
         android:layout_marginTop="11dp"
         android:adjustViewBounds="true"
         android:src="@drawable/loading_3"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_5" />

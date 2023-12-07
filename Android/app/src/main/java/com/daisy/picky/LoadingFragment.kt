@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.core.animation.addListener
 import androidx.dynamicanimation.animation.DynamicAnimation.OnAnimationEndListener
 import androidx.fragment.app.Fragment
@@ -35,6 +36,15 @@ class LoadingFragment : Fragment() {
         val view = binding.root
 
         gameViewModel = ViewModelProvider(requireActivity())[GameViewModel::class.java]
+
+        val rotation_animation = AnimationUtils.loadAnimation(context, R.anim.loading_rotation)
+        val rotation_animation_reverse = AnimationUtils.loadAnimation(context, R.anim.loading_rotation_reverse)
+        binding.card1.startAnimation(rotation_animation)
+        binding.card2.startAnimation(rotation_animation_reverse)
+        binding.card3.startAnimation(rotation_animation)
+        binding.card4.startAnimation(rotation_animation_reverse)
+        binding.card5.startAnimation(rotation_animation)
+        binding.card6.startAnimation(rotation_animation_reverse)
 
         binding.prgrLoading.max = 100
 
