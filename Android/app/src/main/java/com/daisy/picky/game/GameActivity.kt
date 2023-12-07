@@ -1,6 +1,7 @@
 package com.daisy.picky.game
 
 import android.graphics.Color
+import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -44,6 +45,8 @@ class GameActivity : BaseActivity() {
 
     private lateinit var fragmentTransaction: FragmentTransaction
 
+    private var canGoBack :Boolean = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
@@ -52,6 +55,7 @@ class GameActivity : BaseActivity() {
         gameViewModel = ViewModelProvider(this)[GameViewModel::class.java]
 
         setContainerLoading(View.VISIBLE)
+        canGoBack = false
         gameViewModel.setLoading()
 
         fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -65,9 +69,17 @@ class GameActivity : BaseActivity() {
 
         gameViewModel.setGame(gameMode)
 
+        if (gameMode == NORMAL_MODE){
+            binding.txtModeName.text = getString(R.string.game_mode_name_1)
+        }else if (gameMode == ONE_MINUTE_MODE){
+            binding.txtModeName.text = getString(R.string.game_mode_name_2)
+        }
+
         gameViewModel.progress.observe(this){
             if(it == 100) {
                 setContainerLoading(View.GONE)
+                binding.btnSets.visibility = View.VISIBLE
+                canGoBack = true
 
                 if (gameMode == NORMAL_MODE){
                     binding.txtSeconds1.visibility= View.GONE
@@ -112,12 +124,12 @@ class GameActivity : BaseActivity() {
         gameViewModel.point.observe(this){
 
             Log.d("loading", "GameActivity: observe point")
-            point = it
-            if(point < 0){
+            //point = it
+            //if(point < 0){
                 //binding.txtPoint.setTextColor(Color.RED);
-            } else {
+            //} else {
                 //binding.txtPoint.setTextColor(Color.WHITE);
-            }
+            //}
             //binding.txtPoint.text = it.toString() + " Points"
 
         }
@@ -132,6 +144,7 @@ class GameActivity : BaseActivity() {
                 }
                 override fun onRightButtonClicked() {
                     btnVisivility(View.VISIBLE)
+                    binding.containerFound.visibility = View.GONE
                     gameViewModel.setGame(gameMode)
                     timer.start()
                 }
@@ -143,6 +156,8 @@ class GameActivity : BaseActivity() {
             prepareDialog.show()
         }
 
+
+        binding.txtSeconds1.setTypeface(binding.txtSeconds1.typeface, Typeface.BOLD)
         gameViewModel.countDownTimerDuration.observe(this){
             if(it >= 10000L){
             binding.txtSeconds1.text = it.toString().subSequence(0,2)
@@ -151,7 +166,6 @@ class GameActivity : BaseActivity() {
             }else if (it >= 100L){
                 binding.txtSeconds1.text = "0"
             }
-
         }
 
         binding.btnBack.setOnClickListener {
@@ -200,22 +214,25 @@ class GameActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if(binding.containerFound.visibility == View.VISIBLE) {
-            binding.containerFound.visibility = View.GONE
-            btnVisivility(View.VISIBLE)
+        if (canGoBack) {
+            if (binding.containerFound.visibility == View.VISIBLE) {
+                binding.containerFound.visibility = View.GONE
+                btnVisivility(View.VISIBLE)
+            } else {
+                val exitDialog = ExitDialog(this, object : CustomDialogInterface {
+                    override fun onLeftButtonClicked() {
+                        finish()
+                    }
+
+                    override fun onRightButtonClicked() {
+                    }
+                })
+                exitDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+                exitDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                exitDialog.show()
+            }
         }
         else {
-            val exitDialog = ExitDialog(this, object: CustomDialogInterface{
-                override fun onLeftButtonClicked() {
-                    finish()
-                }
-
-                override fun onRightButtonClicked() {
-                }
-            })
-            exitDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-            exitDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            exitDialog.show()
         }
     }
 

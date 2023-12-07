@@ -34,31 +34,34 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_found_1"
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-30dp"
+        android:layout_marginTop="-50dp"
         android:layout_marginEnd="-100dp"
-        android:background="@drawable/found_1"
+        android:background="@mipmap/found_icon_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_found_2"
         android:layout_width="wrap_content"
-        android:layout_height="450dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="-80dp"
-        android:layout_marginBottom="180dp"
-        android:src="@drawable/found_2"
+        android:rotation="347.0"
+        android:src="@mipmap/found_icon_2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_exit" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_found_3"
         android:layout_width="wrap_content"
-        android:layout_height="372dp"
-        android:layout_marginEnd="-90dp"
-        android:src="@drawable/found_3"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginBottom="-100dp"
+        android:rotation="13.0"
+        android:src="@mipmap/found_icon_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -67,13 +70,14 @@
         android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
         android:layout_marginEnd="30dp"
         android:gravity="right"
         android:text="@string/check_your_sets"
         android:textColor="@color/white"
         android:textSize="45sp"
         app:fontFamily="@font/poppins_semibold"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlHardcoded" />
@@ -93,15 +97,16 @@
     <TextView
         android:id="@+id/txt_not_supported"
         android:layout_width="wrap_content"
-        android:layout_height="292dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:lineSpacingExtra="-62sp"
+        android:layout_marginBottom="-20dp"
         android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="-62sp"
         android:text="@string/found_not_supported"
         android:textAppearance="@style/found_not_supported"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
