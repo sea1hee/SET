@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:text="@string/game_mode_name_1"
         android:textAppearance="@style/game_mode_name"
+        android:paddingTop="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_back"
         app:layout_constraintStart_toEndOf="@id/btn_back"
         app:layout_constraintTop_toTopOf="@id/btn_back" />
@@ -47,13 +48,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
         android:gravity="right"
         android:orientation="vertical"
-        app:layout_constraintVertical_bias="0.3"
         app:layout_constraintBottom_toTopOf="@+id/fragment_container_board"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="@id/fragment_container_board"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4">
 
         <TextView
             android:id="@+id/txt_count"
@@ -78,6 +78,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
             android:gravity="right"
             android:orientation="horizontal">
 
@@ -87,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="60 "
                 android:textAppearance="@style/game_seconds_1"
-                app:fontFamily="@font/poppins_regular" />
+                app:fontFamily="@font/poppins_bold" />
 
             <TextView
                 android:id="@+id/txt_seconds_2"
@@ -107,7 +108,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="25dp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/btn_sets"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,10 +130,10 @@
 
     <ImageView
         android:id="@+id/btn_reload"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="15dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="13dp"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -140,19 +141,21 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_sets"
-        android:layout_width="85dp"
-        android:layout_height="35dp"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/btn_found"
+        android:paddingTop="2dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:scaleType="fitCenter"
         android:text="@string/found"
-        android:visibility="invisible"
         android:textAllCaps="false"
         android:textAppearance="@style/found_button"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="15dp"
-        android:padding="0dp"
-        android:scaleType="fitCenter"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/btn_found"
         app:srcCompat="@drawable/btn_found" />
 
 

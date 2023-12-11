@@ -22,14 +22,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
 
-    <ImageView
-        android:id="@+id/img_logo"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+    <TextView
+        android:id="@+id/txt_mode_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_mode_name_1"
+        android:textAppearance="@style/game_mode_name"
+        android:paddingTop="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_exit"
-        app:layout_constraintStart_toEndOf="@+id/btn_exit"
-        app:layout_constraintTop_toTopOf="@+id/btn_exit"
-        app:srcCompat="@drawable/picky" />
+        app:layout_constraintStart_toEndOf="@id/btn_exit"
+        app:layout_constraintTop_toTopOf="@id/btn_exit" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_found_1"
