@@ -1,6 +1,10 @@
 package com.daisy.picky
 
+import android.content.ComponentName
+import android.content.ServiceConnection
 import android.content.SharedPreferences
+import android.os.IBinder
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.daisy.picky.game.Card
 
@@ -13,6 +17,8 @@ open class BaseActivity: AppCompatActivity() {
 
         //setTutorial true:첫 설치 , false:메뉴로진입
         var isTutorial :Boolean = true
+        //isMute true:music off, false: music on
+        var turnOnMusic: Boolean = true
 
         val EVER_LOGIN = 0
         val GOOGLE_LOGIN = 1
@@ -34,6 +40,33 @@ open class BaseActivity: AppCompatActivity() {
         private val CARD_PATTERN = listOf("fill", "empty", "stripe")
 
         var cardPack :MutableList<Card> = mutableListOf<Card>()
+
+
+        var musicService: MusicService? = null
+        var isBound = false
+        val connection = object : ServiceConnection {
+            override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+                val binder = service as MusicService.MusicBinder
+                musicService = binder.getService()
+                isBound = true
+                if(turnOnMusic) {
+                    startMusic()
+                }
+            }
+
+            override fun onServiceDisconnected(name: ComponentName?) {
+                isBound = false
+                stopMusic()
+            }
+        }
+
+        fun startMusic() {
+            musicService?.startMusic()
+        }
+
+        fun stopMusic() {
+            musicService?.stopMusic()
+        }
 
         init {
         }

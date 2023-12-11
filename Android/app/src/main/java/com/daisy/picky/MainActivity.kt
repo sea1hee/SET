@@ -2,6 +2,7 @@ package com.daisy.picky
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
+import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -13,9 +14,12 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.daisy.picky.databinding.ActivityMainBinding
 import kotlin.random.Random
 import android.content.Context
+import android.content.ServiceConnection
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.MediaPlayer
+import android.os.IBinder
 import android.view.Window
 import android.view.animation.AnticipateInterpolator
 import androidx.core.animation.doOnEnd
@@ -45,10 +49,10 @@ class MainActivity : BaseActivity(), Handler.Callback  {
 
     private lateinit var configuration: Configuration
     private lateinit var splashScreen: SplashScreen
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-
 
         splashScreen = installSplashScreen()
 
@@ -56,9 +60,14 @@ class MainActivity : BaseActivity(), Handler.Callback  {
 
         // 첫 설치 여부 확인
         prefs = this.getSharedPreferences("picky", MODE_PRIVATE)
-        isTutorial = prefs.getBoolean("tutorial", true)
 
-        if(isTutorial){
+        turnOnMusic = prefs.getBoolean("music", true)
+        val intent = Intent(this, MusicService::class.java)
+        bindService(intent, connection, Context.BIND_AUTO_CREATE)
+        binding.tgMusic.isChecked = turnOnMusic
+
+        isTutorial = prefs.getBoolean("tutorial", true)
+        if(isTutorial) {
             startTutorial()
         }
 
@@ -79,6 +88,17 @@ class MainActivity : BaseActivity(), Handler.Callback  {
             //startGame()
         }
  */
+        binding.tgMusic.setOnCheckedChangeListener { it, isChecked ->
+
+            turnOnMusic = isChecked
+            prefs.edit().putBoolean("music", turnOnMusic).apply()
+
+            if (isChecked) {
+                startMusic()
+            } else {
+                stopMusic()
+            }
+        }
         binding.btnMode1.setOnClickListener{
             Log.d(logTag, "select Normal mode btn")
             gameMode = NORMAL_MODE
@@ -147,6 +167,22 @@ class MainActivity : BaseActivity(), Handler.Callback  {
 
         delayedSnowing.sendEmptyMessageDelayed(SNOWING_MESSAGE_ID, 100)
         */
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("musicLog", "main onStart")
+        startMusic()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("musicLog", "main onStop")
+        stopMusic()/*
+        if (isBound) {
+            unbindService(connection)
+            isBound = false
+        }*/
     }
 
     private fun startTutorial() {
@@ -248,4 +284,5 @@ class MainActivity : BaseActivity(), Handler.Callback  {
             }
         }
     }
+
 }
