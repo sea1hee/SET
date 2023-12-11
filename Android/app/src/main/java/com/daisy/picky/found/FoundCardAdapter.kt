@@ -2,6 +2,7 @@ package com.daisy.picky.found
 
 
 import android.content.Context
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
@@ -26,6 +27,8 @@ class FoundCardAdapter(context: Context) : RecyclerView.Adapter<FoundCardAdapter
             }else{
                 binding.txtCurFoundSet.text = index.toString()
             }
+
+            binding.txtCurFoundSet.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
             binding.rcyFoundCardset.apply{
                 adapter = FoundCardDetailsAdapter(foundCard.get(pos))
