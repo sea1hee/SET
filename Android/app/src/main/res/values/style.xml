@@ -33,6 +33,8 @@
     <style name = "main_button">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@drawable/btn_home</item>
+        <item name="android:lineSpacingExtra">-13sp</item>
+
     </style>
 
     <style name = "game_set_title">
@@ -86,7 +88,7 @@
 
 
     <style name = "found_button">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@drawable/btn_found</item>
         <item name="fontFamily">@font/poppins_semibold</item>
     </style>
@@ -94,7 +96,13 @@
     <style name = "game_mode_name">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/game_mode_name</item>
-        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name = "finish">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/poppins_extrabold</item>
     </style>
 
 </resources>

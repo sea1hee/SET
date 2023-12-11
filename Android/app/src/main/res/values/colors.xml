@@ -51,6 +51,6 @@
     <color name="btn_found_normal">#A5A5A5</color>
     <color name="btn_found_pressed">#A5A5A5</color>
 
-    <color name="game_mode_name">#FFFFFF</color>
+    <color name="game_mode_name">#A5A5A5</color>
 
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">PICKY</string>
     <string name="beginner_mode">Normal Mode</string>
-    <string name="expert_mode">1-Minute mode</string>
+    <string name="expert_mode">1-minute mode</string>
     <string name="tutorial">Rules</string>
     <string name="coming_soon">곧 만나요</string>
     <string name="set">Set</string>
@@ -31,8 +31,8 @@
     <string name="dialog_exit">정말 게임을 종료하시겠습니까?</string>
     <string name="dialog_exit_button1">종료</string>
     <string name="dialog_exit_button2">닫기</string>
-    <string name="dialog_finish">완료\n모든 세트를 찾았습니다!</string>
-    <string name="dialog_finish_minute_mode_1">완료\n </string>
+    <string name="dialog_finish">모든 세트를 찾았습니다!</string>
+    <string name="dialog_finish_minute_mode_1"></string>
     <string name="dialog_finish_minute_mode_2"> 세트를 찾았습니다.</string>
     <string name="dialog_finish_minute_mode_2_1"> 세트를 찾았습니다.</string>
     <string name="dialog_finish_button1">종료</string>
@@ -45,4 +45,5 @@
     <string name="found">Found</string>
     <string name="game_mode_name_1">Normal</string>
     <string name="game_mode_name_2">1-minute</string>
+    <string name="finish">완료</string>
 </resources>

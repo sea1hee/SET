@@ -3,7 +3,7 @@
 
     <!-- Main -->
     <string name="beginner_mode">Normal Mode</string>
-    <string name="expert_mode">1-Minute mode</string>
+    <string name="expert_mode">1-minute mode</string>
     <string name="tutorial">Rules</string>
     <string name="coming_soon">Coming soon!</string>
 
@@ -39,7 +39,7 @@
     <string name="btn_done">DONE</string>
 
     <!-- dialog -->
-    <string name="dialog_exit">Do you want to exit  the Set game?</string>
+    <string name="dialog_exit">Do you want to exit\nthe Set game?</string>
     <string name="dialog_exit_button1">Exit</string>
     <string name="dialog_exit_button2">Stay</string>
     <string name="dialog_exit_button3"></string>
@@ -57,11 +57,14 @@
     <string name="found_not_supported">You\ncan\ndo\nbetter!</string>
 
     <string name="seconds">seconds left</string>
-    <string name="dialog_finish_minute_mode_1">Finish\nYou found </string>
+    <string name="dialog_finish_minute_mode_1">You found </string>
     <string name="dialog_finish_minute_mode_2"> Sets!</string>
     <string name="dialog_finish_minute_mode_2_1"> Set!</string>
     <string name="found">Found</string>
 
     <string name="game_mode_name_1">Normal</string>
     <string name="game_mode_name_2">1-minute</string>
+
+
+    <string name="finish">Finish</string>
 </resources>
