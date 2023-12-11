@@ -4,9 +4,11 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.view.marginTop
 import com.daisy.picky.R
 import jp.wasabeef.blurry.Blurry
 
@@ -21,6 +23,7 @@ class ExitDialog(context: Context,
     private lateinit var exitButton: TextView
     private lateinit var stayButton: TextView
     private lateinit var dialogView: CardView
+    private lateinit var finishText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,9 @@ class ExitDialog(context: Context,
 
         exitButton = findViewById(R.id.btn_yes)
         stayButton = findViewById(R.id.btn_no)
+        finishText = findViewById(R.id.tx_finish)
+        finishText.visibility = View.GONE
+
 
         exitButton.setOnClickListener {
             customDialogInterface.onLeftButtonClicked()

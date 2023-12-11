@@ -3,6 +3,7 @@ package com.daisy.picky.dialog
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.daisy.picky.R
@@ -18,6 +19,8 @@ class FinishDialog(val found:Int, val gameMode:Int, context: Context,
     private lateinit var stayButton: TextView
     private lateinit var dialogView: CardView
     private lateinit var exitText: TextView
+    private lateinit var scoreText: TextView
+    private lateinit var finishText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,19 +33,25 @@ class FinishDialog(val found:Int, val gameMode:Int, context: Context,
 
         exitButton = findViewById(R.id.btn_yes)
         stayButton = findViewById(R.id.btn_no)
-        exitText = findViewById<TextView>(R.id.tx_exit)
+        exitText = findViewById(R.id.tx_exit)
+        scoreText = findViewById(R.id.tx_score)
+        finishText = findViewById(R.id.tx_finish)
+
+        exitText.visibility=View.GONE
+        finishText.visibility = View.VISIBLE
+        scoreText.visibility = View.VISIBLE
 
         stayButton.text = context.resources.getString(R.string.dialog_finish_button2)
         if (gameMode == 1) {
-            exitText.text = context.resources.getString(R.string.dialog_finish)
+            scoreText.text = context.resources.getString(R.string.dialog_finish)
         } else {
             if (found == 0) {
-                exitText.text =
+                scoreText.text =
                     context.resources.getString(R.string.dialog_finish_minute_mode_1) +" "+ found.toString() +" "+ context.resources.getString(
                         R.string.dialog_finish_minute_mode_2
                     )
             } else {
-                exitText.text =
+                scoreText.text =
                     context.resources.getString(R.string.dialog_finish_minute_mode_1) +" "+ found.toString() +" "+ context.resources.getString(
                         R.string.dialog_finish_minute_mode_2_1
                     )

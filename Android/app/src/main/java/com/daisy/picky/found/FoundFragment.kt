@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.daisy.picky.BaseActivity
+import com.daisy.picky.R
 import com.daisy.picky.game.GameActivity
 import com.daisy.picky.game.GameViewModel
 import com.daisy.picky.game.OnCardClick
@@ -44,6 +46,13 @@ class FoundFragment : Fragment(), OnCardClick {
         //adapter.foundCard = gameViewModel.matchCard.value!!
         binding.rcFoundsets.adapter = adapter
         binding.rcFoundsets.layoutManager = GridLayoutManager(context, 1)
+
+        if (BaseActivity.gameMode == BaseActivity.NORMAL_MODE){
+            binding.txtModeName.text = getString(R.string.game_mode_name_1)
+        }else if (BaseActivity.gameMode == BaseActivity.ONE_MINUTE_MODE){
+            binding.txtModeName.text = getString(R.string.game_mode_name_2)
+        }
+
 
         gameViewModel.matchCard.observe(viewLifecycleOwner) {
 
