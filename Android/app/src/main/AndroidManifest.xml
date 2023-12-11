@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.daisy.picky">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <application
         android:name=".login.KakaoApplication"
         android:allowBackup="true"
@@ -14,31 +15,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App.Starting"
         tools:targetApi="31">
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="true"></service>
 
         <activity
             android:name=".tutorial.TutorialActivity"
-            android:theme="@style/Theme.PICKY"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:exported="false"/>
-
+            android:theme="@style/Theme.PICKY" />
         <activity
             android:name=".login.LoginActivity"
             android:allowBackup="false"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".game.GameActivity"
-            android:theme="@style/Theme.PICKY"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:exported="false" />
+            android:theme="@style/Theme.PICKY" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.PICKY"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:exported="true">
+            android:theme="@style/Theme.PICKY">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
