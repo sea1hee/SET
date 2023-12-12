@@ -137,6 +137,9 @@ class GameActivity : BaseActivity() {
         gameViewModel.endGameFlag.observe(this){
             Log.d("loading", "GameActivity: observe endGameFlag")
             Log.d("theif", "call observer start")
+            if(gameMode == ONE_MINUTE_MODE) {
+                timer.cancel()
+            }
 
             val prepareDialog = FinishDialog(gameViewModel.cntAnswer.value!!, gameMode, this, object: CustomDialogInterface {
                 override fun onLeftButtonClicked(){
@@ -146,7 +149,9 @@ class GameActivity : BaseActivity() {
                     btnVisivility(View.VISIBLE)
                     binding.containerFound.visibility = View.GONE
                     gameViewModel.setGame(gameMode)
-                    timer.start()
+                    if(gameMode == ONE_MINUTE_MODE){
+                        timer.start()
+                    }
                 }
             })
             prepareDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
