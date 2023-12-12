@@ -85,9 +85,11 @@ class GameViewModel() : ViewModel() {
                 _boardCard.value = boardCardList
                 _boardCard.postValue(_boardCard.value)
 
+                selectedCardList = mutableListOf<Int>()
                 _selectedCard.value = selectedCardList
                 _selectedCard.postValue(selectedCardList)
 
+                matchedCardList = mutableListOf<List<Card>>()
                 _matchedCard.value = matchedCardList
                 _matchedCard.postValue(_matchedCard.value)
 

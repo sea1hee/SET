@@ -69,11 +69,11 @@ class FoundFragment : Fragment(), OnCardClick {
                 binding.imgFound2.visibility = View.GONE
                 binding.imgFound3.visibility = View.GONE
                 binding.txtNotSupported.visibility = View.GONE
-
-                adapter.foundCard = it!!
-                Log.d(logtag, adapter.foundCard.size.toString())
-                adapter.notifyDataSetChanged()
             }
+
+            adapter.foundCard = it!!
+            Log.d(logtag, adapter.foundCard.size.toString())
+            adapter.notifyDataSetChanged()
         }
 
 
