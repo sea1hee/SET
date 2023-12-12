@@ -44,7 +44,7 @@
     <string name="dialog_exit_button2">Stay</string>
     <string name="dialog_exit_button3"></string>
 
-    <string name="dialog_finish">Finish You found All Set !!</string>
+    <string name="dialog_finish">You found All Set !!</string>
     <string name="dialog_finish_button1">Exit</string>
     <string name="dialog_finish_button2">Again</string>
     <string name="dialog_finish_button3"></string>
