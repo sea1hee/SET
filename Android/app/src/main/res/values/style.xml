@@ -1,106 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name = "rules_title">
-        <item name="android:textSize">40sp</item>
+        <item name="android:textSize">40dp</item>
         <item name="android:textColor">@color/rules_text_color</item>
         <item name="fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name = "rules_element_title">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/rules_text_color</item>
         <item name="fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name = "rules_element_description">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/rules_text_color</item>
         <item name="fontFamily">@font/poppins_medium</item>
     </style>
 
     <style name = "rules_element_example">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/rules_text_color</item>
         <item name="fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name = "rules_element_title_u">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/rules_text_color</item>
         <item name="fontFamily">@font/poppins_semibold</item>
     </style>
 
     <style name = "main_button">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">30dp</item>
         <item name="android:textColor">@drawable/btn_home</item>
         <item name="android:lineSpacingExtra">-13sp</item>
 
     </style>
 
     <style name = "game_set_title">
-        <item name="android:textSize">45sp</item>
+        <item name="android:textSize">45dp</item>
         <item name="android:textColor">@color/game_text_color_1</item>
     </style>
 
 
     <style name = "game_set_subtitle">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/game_text_color_2</item>
     </style>
 
     <style name = "dialog_title">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name = "dialog_content">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name = "dialog_button_1">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
     </style>
 
     <style name = "dialog_button_2">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">#1C1C1C</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
     </style>
 
     <style name = "found_not_supported">
-        <item name="android:textSize">90sp</item>
+        <item name="android:textSize">90dp</item>
         <item name="android:letterSpacing">-0.05</item>
         <item name="android:textColor">#F0F0F0</item>
         <item name="fontFamily">@font/poppins_thin</item>
     </style>
 
     <style name = "game_seconds_1">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">#FF489B</item>
         <item name="fontFamily">@font/poppins_bold</item>
     </style>
     <style name = "game_seconds_2">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">#FF489B</item>
         <item name="fontFamily">@font/poppins_regular</item>
     </style>
 
 
     <style name = "found_button">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">@drawable/btn_found</item>
         <item name="fontFamily">@font/poppins_semibold</item>
     </style>
 
     <style name = "game_mode_name">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/game_mode_name</item>
         <item name="fontFamily">@font/poppins_medium</item>
     </style>
 
     <style name = "finish">
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">25dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="fontFamily">@font/poppins_extrabold</item>
     </style>
