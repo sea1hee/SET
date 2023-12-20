@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name = "rules_title">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name = "rules_element_title">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name = "rules_element_description">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name = "rules_element_example">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name = "rules_element_title_u">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/rules_text_color</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+    </style>
+</resources>

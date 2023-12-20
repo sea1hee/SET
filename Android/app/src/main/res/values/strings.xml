@@ -18,7 +18,7 @@
     <string name="redirect">Shuffling!</string>
 
     <!-- loading -->
-    <string name="loading">Loading ...</string>
+    <string name="loading">loading ...</string>
 
     <!-- Tutorial  -->
     <string name="color_u"><u>Color</u></string>
@@ -27,7 +27,7 @@
     <string name="symbol_u"><u>Shape</u></string>
     <string name="_2023_mousehouse">ⓒ 2023 MouseHouse.</string>
 
-    <string name="tutorial_description">A Card consists of 4 elements.</string>
+    <string name="tutorial_description">Choose 3 out of 12 cards\nA Card consists of 4 elements.</string>
 
     <string name="color_detail">The colors on the three cards must all be the same or all be different.</string>
     <string name="pattern_detail">The patterns on the three cards must all be the same or all be different.</string>
@@ -44,7 +44,7 @@
     <string name="dialog_exit_button2">Stay</string>
     <string name="dialog_exit_button3"></string>
 
-    <string name="dialog_finish">You found All Set !!</string>
+    <string name="dialog_finish">You found All Set!</string>
     <string name="dialog_finish_button1">Exit</string>
     <string name="dialog_finish_button2">Again</string>
     <string name="dialog_finish_button3"></string>

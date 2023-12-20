@@ -1,34 +1,35 @@
 package com.daisy.picky.game
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.daisy.picky.game.OnCardClick
 import com.daisy.picky.R
 import com.google.android.material.card.MaterialCardView
 
 
-class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+class CardAdapter(context: Context) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
     var boardCard: List<Card> = listOf<Card>()
     var selectedCard: List<Int> = listOf<Int>()
     var context: Context = context
 
-    interface OnItemClickListener {
-        fun onItemClick(pos: Int)
+    fun setOnItemClickListener(a_listener: OnItemClickEventListener) {
+        mItemClickListener = a_listener
+    }
+    private lateinit var mItemClickListener: OnItemClickEventListener
+    interface OnItemClickEventListener {
+        fun onItemClick(a_view: ViewGroup, view: MaterialCardView, a_position: Int)
     }
 
-    private var onItemClickListener: OnItemClickListener? = null
+    inner class ViewHolder(view: View,
+        a_itemClickListener: OnItemClickEventListener) : RecyclerView.ViewHolder(view) {
 
-    fun setOnItemClickListener(listener: OnItemClickListener?) {
-        onItemClickListener = listener
-    }
-
-    private val mCallback = listener
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val card: MaterialCardView
         val pattern1: ImageView
         val pattern2: ImageView
@@ -42,6 +43,14 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
             pattern3 = view.findViewById(R.id.card_3)
             pattern4 = view.findViewById(R.id.card_4)
             pattern5 = view.findViewById(R.id.card_5)
+
+            view.setOnClickListener { a_view ->
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    a_itemClickListener.onItemClick(card, card, position)
+                }
+            }
+
         }
 
         fun setCount(curCard: Card){
@@ -82,7 +91,6 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
             pattern3.setImageResource(id)
             pattern4.setImageResource(id)
             pattern5.setImageResource(id)
-
         }
 
     }
@@ -91,14 +99,14 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_card, parent, false)
 
-        return ViewHolder(view)
+        return ViewHolder(view, mItemClickListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+/*
         holder.card.setOnClickListener{
             mCallback.selected(position)
-        }
+        }*/
 
         var selected = false
         for(i in 0..selectedCard.lastIndex){
@@ -113,28 +121,12 @@ class CardAdapter(listener: OnCardClick, context: Context) : RecyclerView.Adapte
             holder.card.strokeColor = ContextCompat.getColor(holder.card.context,
                 R.color.card_stroke_selected
             )
-            /*
-            holder.card.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    holder.card.context,
-                    R.color.card_background_selected
-                )
-
-            )
-             */
         }else {
             holder.card.strokeWidth = 3
-            holder.card.strokeColor = ContextCompat.getColor(holder.card.context,
+            holder.card.strokeColor = ContextCompat.getColor(
+                holder.card.context,
                 R.color.card_stroke_normal
             )
-            /*
-            holder.card.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    holder.card.context,
-                    R.color.card_background_normal
-                )
-            )
-             */
         }
 
         holder.setShape(boardCard.get(position))

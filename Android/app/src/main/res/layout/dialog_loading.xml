@@ -9,15 +9,12 @@
     <ProgressBar
         android:id="@+id/prgr_loading"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginEnd="76dp"
+        android:layout_width="168dp"
+        android:layout_height="28dp"
         android:progress="25"
         android:progressDrawable="@drawable/progressbar_loading"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />

@@ -1,42 +1,38 @@
 package com.daisy.picky
 
+import android.animation.Animator
+import android.animation.AnimatorInflater
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
-import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.widget.AppCompatImageView
-import com.daisy.picky.databinding.ActivityMainBinding
-import kotlin.random.Random
-import android.content.Context
-import android.content.ServiceConnection
-import android.content.res.Configuration
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.media.MediaPlayer
-import android.os.IBinder
 import android.view.Window
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
+import android.view.animation.TranslateAnimation
+import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.daisy.picky.dialog.CustomDialogInterface
-import com.daisy.picky.dialog.ExitDialog
+import com.daisy.picky.databinding.ActivityMainBinding
 import com.daisy.picky.dialog.ReadyDialog
 import com.daisy.picky.game.GameActivity
-import com.daisy.picky.login.LoginActivity
 import com.daisy.picky.tutorial.TutorialActivity
-import com.kakao.sdk.user.UserApiClient
-import com.navercorp.nid.NaverIdLoginSDK
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
-import java.util.Locale
 import java.util.concurrent.TimeUnit
+import kotlin.random.Random
+
 
 private const val SNOWING_MESSAGE_ID = 10
 
@@ -67,9 +63,12 @@ class MainActivity : BaseActivity(), Handler.Callback  {
         binding.tgMusic.isChecked = turnOnMusic
 
         isTutorial = prefs.getBoolean("tutorial", true)
+        Log.d("tutorialTest", "install, tutorial on?"+ isTutorial.toString())
         if(isTutorial) {
             startTutorial()
         }
+
+        bindAnimation()
 
         var subject: PublishSubject<Int> = PublishSubject.create()
         val mCompositeDisposable = CompositeDisposable()
@@ -186,7 +185,7 @@ class MainActivity : BaseActivity(), Handler.Callback  {
     }
 
     private fun startTutorial() {
-
+        Log.d("tutorialTest", "startTutorialActivity")
         val intent = Intent(this, TutorialActivity::class.java)
         startActivity(intent)
     }
@@ -283,6 +282,45 @@ class MainActivity : BaseActivity(), Handler.Callback  {
                 start()
             }
         }
+    }
+
+    fun bindAnimation(){
+        var animTest: Animation = AnimationUtils.loadAnimation(this, R.anim.icon_home_1)
+        var animTest2: Animation = AnimationUtils.loadAnimation(this, R.anim.icon_home_2)
+        var animTest3: Animation = AnimationUtils.loadAnimation(this, R.anim.icon_home_3)
+        //var animTest2: Animator = AnimatorInflater.loadAnimator(this, R.animator.icon_home_3)
+        binding.imgHome1.animation = animTest
+        binding.imgHome2.animation = animTest3
+        binding.imgHome3.animation = animTest2
+        //animTest2.apply {
+        //    setTarget(binding.imgHome3)
+        //    start()
+        //}
+
+/*
+        var animation_1 = TranslateAnimation(0f, 30f, 0f, 30f)
+        animation_1.setDuration(1000)
+        animation_1.setRepeatCount(-1)
+        animation_1.setRepeatMode(Animation.REVERSE)
+
+        var animation_2 = TranslateAnimation(0f, 60f, 0f, 0f)
+        animation_2.setDuration(1000)
+        animation_2.setRepeatCount(-1)
+        animation_2.setRepeatMode(Animation.REVERSE)
+
+
+        var animation_3 = TranslateAnimation(TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.ABSOLUTE, 0f, TranslateAnimation.RELATIVE_TO_PARENT, -1f, TranslateAnimation.RELATIVE_TO_PARENT, 1.0f)
+        animation_3.setDuration(1000)
+
+        animation_3.setFillAfter(true)
+        animation_3.setRepeatCount(-1)
+        animation_3.setRepeatMode(Animation.REVERSE)
+
+
+        binding.imgHome1.animation = animation_1
+        binding.imgHome2.animation = animation_3
+        binding.imgHome3.animation = animation_2
+ */
     }
 
 }

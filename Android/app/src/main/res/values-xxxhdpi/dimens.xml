@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="game_card_w">93.58dp</dimen>
+    <dimen name="game_card_h">175dp</dimen>
+    <dimen name="game_icon">45dp</dimen>
+</resources>

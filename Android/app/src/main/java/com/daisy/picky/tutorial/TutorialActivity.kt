@@ -22,10 +22,11 @@ class TutorialActivity : BaseActivity() {
         binding = ActivityTutorialBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (isTutorial){
+        if (isTutorial){ // initial tutorial
+            Log.d("tutorialTest", isTutorial.toString())
             binding.btnExit.visibility = View.INVISIBLE
             binding.btnSkip.visibility = View.VISIBLE
-        } else {
+        } else { // tutorial menu
             binding.btnSkip.visibility = View.INVISIBLE
             binding.btnExit.visibility = View.VISIBLE
         }

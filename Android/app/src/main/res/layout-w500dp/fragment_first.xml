@@ -1,46 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/game_background"
     tools:context=".tutorial.FirstFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tx_tutorial_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tutorial_description"
-            android:textAppearance="@style/rules_element_description"
-            app:layout_constraintStart_toStartOf="@id/txt_color"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_color"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="100dp"
             android:text="@string/color_u"
+            android:textSize="25dp"
             android:textAppearance="@style/rules_element_title_u"
+            app:layout_constraintEnd_toStartOf="@+id/img_color_1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tx_tutorial_description" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_color_1"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/tutorial_1_1"
             app:layout_constraintEnd_toStartOf="@+id/img_color_2"
@@ -48,8 +41,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_color_2"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/tutorial_1_2"
             app:layout_constraintEnd_toStartOf="@+id/img_color_3"
@@ -57,8 +50,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_color_3"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="30dp"
             android:src="@drawable/tutorial_1_3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,19 +59,19 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_pattern"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
             android:text="@string/pattern_u"
+            android:textSize="25dp"
             android:textAppearance="@style/rules_element_title_u"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_color" />
+            app:layout_constraintTop_toBottomOf="@+id/img_color_1" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_pattern_1"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/tutorial_2_1"
             app:layout_constraintEnd_toStartOf="@+id/img_pattern_2"
@@ -86,8 +79,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_pattern_2"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/tutorial_2_2"
             app:layout_constraintEnd_toStartOf="@+id/img_pattern_3"
@@ -95,8 +88,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_pattern_3"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="30dp"
             android:src="@drawable/tutorial_2_3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,19 +97,19 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_number"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
             android:text="@string/number_u"
+            android:textSize="25dp"
             android:textAppearance="@style/rules_element_title_u"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_pattern" />
+            app:layout_constraintTop_toBottomOf="@+id/img_pattern_1" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_number_1"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/tutorial_3_1"
             app:layout_constraintEnd_toStartOf="@+id/img_number_2"
@@ -124,8 +117,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_number_2"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/tutorial_3_2"
             app:layout_constraintEnd_toStartOf="@+id/img_number_3"
@@ -133,8 +126,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_number_3"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="30dp"
             android:src="@drawable/tutorial_3_3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -142,19 +135,19 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_symbol"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="20dp"
             android:text="@string/symbol_u"
+            android:textSize="25dp"
             android:textAppearance="@style/rules_element_title_u"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_number" />
+            app:layout_constraintTop_toBottomOf="@+id/img_number_1" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_symbol_1"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/tutorial_4_1"
             app:layout_constraintEnd_toStartOf="@+id/img_symbol_2"
@@ -162,8 +155,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_symbol_2"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/tutorial_4_2"
             app:layout_constraintEnd_toStartOf="@+id/img_symbol_3"
@@ -171,8 +164,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_symbol_3"
-            android:layout_width="53dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
             android:layout_marginEnd="30dp"
             android:src="@drawable/tutorial_4_3"
             app:layout_constraintEnd_toEndOf="parent"

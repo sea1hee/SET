@@ -11,39 +11,35 @@
     <string name="sets_available">sets available</string>
     <string name="check_your_sets">Check\nyour sets</string>
     <string name="redirect">Shuffling!</string>
-    <string name="loading">카드 준비 중</string>
+    <string name="loading">loading ...</string>
     <string name="color_u"><u>Color</u></string>
     <string name="pattern_u"><u>Pattern</u></string>
     <string name="number_u"><u>Number</u></string>
     <string name="symbol_u"><u>Shape</u></string>
     <string name="_2023_mousehouse">ⓒ 2023 MouseHouse</string>
-    <string name="color_detail">카드의 도형은 모두 같은 색이거나, 서로 다른 색이어야 돼요. 예를 들어, 세 카드가 모두 초록색이거나,
-각자 다른 색이면 됩니다.</string>
-    <string name="pattern_detail">세 카드는 모두 같은 음영/무늬이거나, 서로 다른
-경우에 맞아야 해요. 예를 들면, 세 카드가 모두 실선이거나, 서로 다른 무늬여야 해요.</string>
-    <string name="number_detail">갯수에 주목해  보세요.  세 카드의 도형의 갯수는 모두 같거나, 각기 다른 갯수여야 해요. 예를 들면, 세 카드의 도형의 갯수가 모두 1개로 같거나, 1, 2, 3개로 달라야 해요.</string>
-    <string name="symbol_detail">마지막으로, 세 카드의 도형은 모두 같아야 하거나
-서로 다른 도형이어야 돼요. 예를 들면, 세 카드가
-모두 사각형이거나, 서로 다른 도형이면 돼요.</string>
+    <string name="color_detail">카드는 세 가지 색이에요. 모두 같은 색의 카드를 찾거나 모두 다른 색의 카드를 찾아야 해요. 예를 들면, 아래와 같이 찾을 수 있어요.</string>
+    <string name="pattern_detail">카드는 세 가지 음영/무늬가 있어요. 모두 속이 채워진 카드를 찾거나, 모두 속이 비워진 카드를 찾거나, 모두 무늬가 있는 카드를 찾거나, 모두 다른 카드를 찾아야 해요.</string>
+    <string name="number_detail">갯수에 주목해 보세요. 세 카드의 도형의 갯수는 모두 같거나, 각기 다른 갯수여야 해요. 예를 들면, 세 카드의 도형의 갯수가 모두 1개로 같거나, 1, 2, 3개로 달라야 해요.</string>
+    <string name="symbol_detail">마지막으로, 카드는 세 가지 모양이 있어요. 모두 같은 모양의 카드를 찾거나, 모두 다른 모양의 카드를 찾아야 해요.</string>
     <string name="btn_next">다음</string>
     <string name="btn_prev">이전</string>
     <string name="btn_done">완료</string>
-    <string name="dialog_exit">정말 게임을 종료하시겠습니까?</string>
-    <string name="dialog_exit_button1">종료</string>
-    <string name="dialog_exit_button2">닫기</string>
-    <string name="dialog_finish">모든 세트를 찾았습니다!</string>
-    <string name="dialog_finish_minute_mode_1"></string>
-    <string name="dialog_finish_minute_mode_2"> 세트를 찾았습니다.</string>
-    <string name="dialog_finish_minute_mode_2_1"> 세트를 찾았습니다.</string>
-    <string name="dialog_finish_button1">종료</string>
-    <string name="dialog_finish_button2">다시</string>
+    <string name="dialog_exit">Do you want to exit\nthe Set game?</string>
+    <string name="dialog_exit_button1">Exit</string>
+    <string name="dialog_exit_button2">Stay</string>
+    <string name="dialog_finish">You found All Set!</string>
+    <string name="dialog_finish_minute_mode_1">"You found "</string>
+    <string name="dialog_finish_minute_mode_2">" Sets!"</string>
+    <string name="dialog_finish_minute_mode_2_1">" Set!"</string>
+    <string name="dialog_finish_button1">Exit</string>
+    <string name="dialog_finish_button2">Again</string>
     <string name="dialog_ready">곧 만나요</string>
     <string name="dialog_ready_button3">닫기</string>
-    <string name="tutorial_description">하나의 카드는 4가지 요소로 구성되어 있습니다.</string>
+    <string name="tutorial_description">12개의 카드 중 카드 3개를 선택해야 합니다.\n카드는 4가지로 구성되어 있어요. </string>
     <string name="found_not_supported">You\ncan\ndo\nbetter!</string>
     <string name="seconds">seconds left</string>
     <string name="found">Found</string>
     <string name="game_mode_name_1">Normal</string>
     <string name="game_mode_name_2">1-minute</string>
-    <string name="finish">완료</string>
+    <string name="finish">Finish</string>
 </resources>

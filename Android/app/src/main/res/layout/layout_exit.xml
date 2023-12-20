@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal|center_vertical"
-            android:lineSpacingExtra="-5sp"
+            android:lineSpacingExtra="-5dp"
             android:text="@string/finish"
             android:textAppearance="@style/finish"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal|center_vertical"
-            android:lineSpacingExtra="-5sp"
+            android:lineSpacingExtra="-5dp"
             android:text="@string/dialog_exit"
             android:textAppearance="@style/dialog_content"
             app:fontFamily="@font/poppins_medium"
@@ -51,7 +51,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal|center_vertical"
-            android:lineSpacingExtra="-5sp"
+            android:lineSpacingExtra="-5dp"
             android:visibility="gone"
             android:text="@string/dialog_exit"
             android:textAppearance="@style/dialog_content"
@@ -74,8 +74,8 @@
 
             <TextView
                 android:id="@+id/btn_yes"
-                android:layout_width="72dp"
-                android:layout_height="30dp"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
                 android:layout_marginRight="4dp"
                 android:background="@drawable/btn_normal"
                 android:gravity="center"
@@ -84,13 +84,12 @@
                 android:minHeight="0dp"
                 android:text="@string/dialog_exit_button1"
                 android:textAllCaps="false"
-                android:textAppearance="@style/dialog_button_1"
-                app:fontFamily="@font/poppins_semibold" />
+                android:textAppearance="@style/dialog_button_1" />
 
             <TextView
                 android:id="@+id/btn_no"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/btn_normal_light"
                 android:gravity="center"
@@ -99,15 +98,14 @@
                 android:minHeight="0dp"
                 android:text="@string/dialog_exit_button2"
                 android:textAllCaps="false"
-                android:textAppearance="@style/dialog_button_2"
-                app:fontFamily="@font/poppins_semibold" />
+                android:textAppearance="@style/dialog_button_2" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/btn_close"
-            android:layout_width="72dp"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
             android:background="@drawable/btn_normal_light"
             android:gravity="center"
             android:includeFontPadding="false"
@@ -116,7 +114,7 @@
             android:text="@string/dialog_exit_button3"
             android:textAllCaps="false"
             android:textColor="@color/btn_normal_light_font"
-            android:textSize="14sp"
+            android:textSize="16dp"
             android:visibility="gone"
             app:fontFamily="@font/poppins_semibold"
             app:layout_constraintBottom_toBottomOf="parent"

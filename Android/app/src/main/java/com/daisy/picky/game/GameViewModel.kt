@@ -130,13 +130,13 @@ class GameViewModel() : ViewModel() {
     public fun setSelected(isIncluded :Boolean, value: Int):Boolean {
         Log.d("theif", "setSelected")
         // 이미 선택되어 있는 경우, 선택 해제
-        if (isIncluded) {
+        if (isIncluded) { // already selected card
             selectedCardList.remove(value)
 
             _selectedCard.value = selectedCardList
             _selectedCard.postValue(selectedCardList)
             return true
-        } else { // 카드 선택 후, 3개 선택 상태이면 set인지 확인, 3개 선택 해제
+        } else { // not selected card 카드 선택 후, 3개 선택 상태이면 set인지 확인, 3개 선택 해제
             selectedCardList.add(value)
             _selectedCard.value = selectedCardList
             _selectedCard.postValue(selectedCardList)
@@ -375,5 +375,15 @@ class GameViewModel() : ViewModel() {
 
     fun setLoading() {
         setProgress(0)
+    }
+
+    fun isSelected(p: Int):Boolean{
+        var rtn :Boolean = false
+        for (i in 0..selectedCardList.size.minus(1)) {
+            if(selectedCardList.get(i) == p){
+                rtn = true
+            }
+        }
+        return rtn
     }
 }
